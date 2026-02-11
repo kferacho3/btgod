@@ -3,6 +3,7 @@ export type Product = {
   slug: string;
   name: string;
   subtitle: string;
+  category: "outerwear" | "knitwear" | "bottoms" | "essentials";
   collection: string;
   badge: string;
   price: number;
@@ -40,6 +41,7 @@ export const products: Product[] = [
     slug: "obsidian-command-jacket",
     name: "Obsidian Command Jacket",
     subtitle: "Armor shell with clean tactical seams",
+    category: "outerwear",
     collection: "Noir Genesis",
     badge: "Limited",
     price: 320,
@@ -54,6 +56,7 @@ export const products: Product[] = [
     slug: "steel-veil-hoodie",
     name: "Steel Veil Hoodie",
     subtitle: "Heavyweight drape for cold city nights",
+    category: "essentials",
     collection: "Noir Genesis",
     badge: "Core",
     price: 190,
@@ -68,6 +71,7 @@ export const products: Product[] = [
     slug: "halo-track-pant",
     name: "Halo Track Pant",
     subtitle: "Straight fall silhouette, no excess",
+    category: "bottoms",
     collection: "Silver Discipline",
     badge: "New",
     price: 160,
@@ -82,6 +86,7 @@ export const products: Product[] = [
     slug: "cathedral-knit",
     name: "Cathedral Knit",
     subtitle: "Dense knit texture with clean collar edge",
+    category: "knitwear",
     collection: "Silver Discipline",
     badge: "Restock",
     price: 140,
@@ -96,6 +101,7 @@ export const products: Product[] = [
     slug: "archangel-overcoat",
     name: "Archangel Overcoat",
     subtitle: "Longline silhouette for maximum statement",
+    category: "outerwear",
     collection: "Gold Testament",
     badge: "Top Pick",
     price: 420,
@@ -110,6 +116,7 @@ export const products: Product[] = [
     slug: "sanctum-tee",
     name: "Sanctum Tee",
     subtitle: "Everyday essential with premium drape",
+    category: "essentials",
     collection: "Gold Testament",
     badge: "Essential",
     price: 88,
@@ -221,4 +228,3 @@ export const brandPillars = [
       "Cut, weight, and movement are engineered for all-day wear and statement impact.",
   },
 ];
-

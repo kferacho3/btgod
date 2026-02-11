@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ProductCard } from "@/components/product-card";
+import { ProductPurchaseActions } from "@/features/shop/components/product-purchase-actions";
 import { products } from "@/lib/catalog";
 import { formatCurrency } from "@/lib/format";
 
@@ -75,9 +77,7 @@ export default async function ProductDetailPage({
             <p className="display-font text-5xl tracking-[0.08em]">
               {formatCurrency(product.price)}
             </p>
-            <button type="button" className="btn-solid">
-              Add To Cart
-            </button>
+            <ProductPurchaseActions productSlug={product.slug} />
             <Link href="/shop" className="btn-outline">
               Back To Shop
             </Link>
@@ -96,37 +96,10 @@ export default async function ProductDetailPage({
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {relatedProducts.map((item) => (
-            <article key={item.slug} className="card-shell overflow-hidden">
-              <div className="relative aspect-[4/5] border-b border-[var(--line)]">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 33vw"
-                  className="object-cover grayscale-[12%]"
-                />
-              </div>
-              <div className="space-y-4 p-4">
-                <h3 className="display-font text-3xl leading-none tracking-[0.07em]">
-                  {item.name}
-                </h3>
-                <p className="text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-                  {item.subtitle}
-                </p>
-                <div className="flex items-center justify-between gap-3 border-t border-[var(--line)] pt-4">
-                  <p className="display-font text-3xl tracking-[0.08em]">
-                    {formatCurrency(item.price)}
-                  </p>
-                  <Link href={`/shop/${item.slug}`} className="btn-outline">
-                    View Piece
-                  </Link>
-                </div>
-              </div>
-            </article>
+            <ProductCard key={item.slug} product={item} />
           ))}
         </div>
       </section>
     </>
   );
 }
-

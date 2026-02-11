@@ -8,6 +8,7 @@ This project is focused on frontend architecture and visual direction first, wit
 - Next.js (App Router)
 - React + TypeScript
 - Tailwind CSS v4
+- Zustand (unified client state store)
 
 ## Brand Direction
 
@@ -26,6 +27,19 @@ This project is focused on frontend architecture and visual direction first, wit
 - `/cart` cart management preview
 - `/account` account roadmap
 - `/account/sign-in` sign-in UI
+
+## Engineering Standards
+
+- Feature-first code organization under `src/features`
+- Unified Zustand store with typed selectors and actions
+- Domain hooks for derived logic and orchestration
+- Route files focused on composition instead of heavy logic
+- Target file size under ~500 lines
+
+## Internal Docs
+
+- `docs/ARCHITECTURE.md`
+- `docs/STATE_MANAGEMENT.md`
 
 ## Run Locally
 

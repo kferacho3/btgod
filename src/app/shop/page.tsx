@@ -1,16 +1,7 @@
 import Link from "next/link";
-import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
-import { products } from "@/lib/catalog";
-
-const filters = [
-  "All Pieces",
-  "Outerwear",
-  "Knitwear",
-  "Bottoms",
-  "Essentials",
-  "Limited",
-];
+import { ShopControls } from "@/features/shop/components/shop-controls";
+import { ShopGrid } from "@/features/shop/components/shop-grid";
 
 export default function ShopPage() {
   return (
@@ -26,29 +17,10 @@ export default function ShopPage() {
             </Link>
           }
         />
-        <div className="flex flex-wrap gap-2">
-          {filters.map((filter, index) => (
-            <button
-              key={filter}
-              type="button"
-              className={`pill transition-colors ${
-                index === 0
-                  ? "border-[var(--metal-gold)] text-[var(--metal-gold)]"
-                  : "hover:border-[var(--line-strong)]"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
+        <ShopControls />
       </section>
 
-      <section className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </section>
+      <ShopGrid />
     </>
   );
 }
-

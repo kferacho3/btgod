@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { useCartItemCount } from "@/store/selectors";
 
 const navLinks = [
   { href: "/shop", label: "Shop" },
@@ -10,6 +13,8 @@ const navLinks = [
 ];
 
 export function SiteHeader() {
+  const cartCount = useCartItemCount();
+
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--line)] glass-shell">
       <div className="mx-auto flex w-full max-w-[1320px] flex-col gap-5 px-5 py-4 sm:px-8 lg:px-12">
@@ -30,7 +35,7 @@ export function SiteHeader() {
           <div className="flex flex-wrap items-center gap-2">
             <ThemeToggle />
             <Link href="/cart" className="btn-outline min-w-[6.5rem]">
-              Cart (2)
+              Cart ({cartCount})
             </Link>
           </div>
         </div>

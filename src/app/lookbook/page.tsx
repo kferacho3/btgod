@@ -1,16 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SectionHeading } from "@/components/section-heading";
+import { LookbookPromptPanel } from "@/features/lookbook/components/lookbook-prompt-panel";
 import { lookbookFrames } from "@/lib/catalog";
-
-const promptTags = [
-  "Black Ice Techwear",
-  "Hard Light Soft Shadow",
-  "Polar Shells",
-  "Subway Platform Grain Film",
-  "City Night Editorial",
-  "Steel Structure",
-];
 
 export default function LookbookPage() {
   return (
@@ -27,28 +19,7 @@ export default function LookbookPage() {
           }
         />
 
-        <article className="space-y-4 border border-[var(--line)] p-4">
-          <p className="text-xs uppercase tracking-[0.19em] text-[var(--text-secondary)]">
-            Current Prompt: New York winter fashion editorial, monochrome,
-            sharp tailoring, street photography
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {promptTags.map((tag) => (
-              <span key={tag} className="pill">
-                {tag}
-              </span>
-            ))}
-          </div>
-          <form className="grid gap-3 sm:grid-cols-[1fr_auto]">
-            <input
-              className="field-input h-12"
-              defaultValue="New York winter fashion editorial, monochrome, sharp tailoring, street photography"
-            />
-            <button type="submit" className="btn-solid h-12 min-w-36">
-              Generate Looks
-            </button>
-          </form>
-        </article>
+        <LookbookPromptPanel />
 
         <div className="frame-grid">
           {lookbookFrames.map((frame) => (
@@ -77,4 +48,3 @@ export default function LookbookPage() {
     </>
   );
 }
-

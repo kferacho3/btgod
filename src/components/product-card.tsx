@@ -1,13 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { formatCurrency } from "@/lib/format";
 import type { Product } from "@/lib/catalog";
+import { useCartActions } from "@/store/selectors";
 
 type ProductCardProps = {
   product: Product;
 };
 
 export function ProductCard({ product }: ProductCardProps) {
+  const { addToCart } = useCartActions();
+
   return (
     <article
       id={product.slug}
@@ -52,7 +57,11 @@ export function ProductCard({ product }: ProductCardProps) {
             <Link href={`/shop/${product.slug}`} className="btn-outline">
               View Piece
             </Link>
-            <button type="button" className="btn-solid">
+            <button
+              type="button"
+              className="btn-solid"
+              onClick={() => addToCart({ productSlug: product.slug })}
+            >
               Add To Cart
             </button>
           </div>
@@ -61,4 +70,3 @@ export function ProductCard({ product }: ProductCardProps) {
     </article>
   );
 }
-

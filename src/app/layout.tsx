@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ThemeInitializer } from "@/components/theme-initializer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
+        <ThemeInitializer />
         <SiteHeader />
         <main className="mx-auto flex w-full max-w-[1320px] flex-col gap-16 px-5 pb-16 pt-8 sm:px-8 lg:px-12">
           {children}
