@@ -17,10 +17,10 @@ export function SectionHeading({
     <div className="flex flex-wrap items-start justify-between gap-6">
       <div className="max-w-2xl space-y-3">
         <p className="eyebrow">{eyebrow}</p>
-        <h2 className="display-font text-5xl leading-none tracking-[0.06em] sm:text-6xl">
+        <h2 className="display-font text-4xl leading-none tracking-[0.07em] sm:text-5xl">
           {title}
         </h2>
-        <p className="max-w-2xl text-sm uppercase tracking-[0.16em] text-[var(--text-secondary)]">
+        <p className="max-w-2xl text-[0.68rem] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
           {description}
         </p>
       </div>
@@ -28,4 +28,3 @@ export function SectionHeading({
     </div>
   );
 }
-

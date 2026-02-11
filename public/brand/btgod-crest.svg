@@ -1,0 +1,31 @@
+<svg width="460" height="620" viewBox="0 0 460 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="crestGold" x1="55" y1="18" x2="406" y2="594" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8B601F"/>
+      <stop offset="18%" stop-color="#F5DEAA"/>
+      <stop offset="42%" stop-color="#B67F2A"/>
+      <stop offset="72%" stop-color="#FFE9B6"/>
+      <stop offset="100%" stop-color="#8B601F"/>
+    </linearGradient>
+    <filter id="crestShadow" x="-24%" y="-24%" width="148%" height="148%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity="0.72"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#crestShadow)">
+    <path d="M229 48L245 78H213L229 48Z" fill="url(#crestGold)" stroke="#EED191" stroke-width="5"/>
+    <path d="M121 165L151 102L188 166L229 118L271 166L309 102L340 165L359 224H101L121 165Z" fill="url(#crestGold)" stroke="#EED191" stroke-width="6" stroke-linejoin="round"/>
+    <circle cx="116" cy="176" r="17" fill="url(#crestGold)" stroke="#EED191" stroke-width="5"/>
+    <circle cx="343" cy="176" r="17" fill="url(#crestGold)" stroke="#EED191" stroke-width="5"/>
+    <path d="M97 223H361L338 270H120L97 223Z" fill="url(#crestGold)" stroke="#EED191" stroke-width="6"/>
+
+    <path d="M134 273H326V414C326 489 286 543 229 579C172 543 134 489 134 414V273Z" fill="#080A0D" stroke="url(#crestGold)" stroke-width="10"/>
+    <path d="M152 289H308V412C308 475 276 520 229 551C182 520 152 475 152 412V289Z" fill="none" stroke="url(#crestGold)" stroke-width="3" stroke-opacity="0.72"/>
+
+    <text x="229" y="420" text-anchor="middle" font-family="Cinzel, Trajan Pro, Times New Roman, serif" font-size="150" letter-spacing="10" fill="url(#crestGold)" stroke="#EED191" stroke-opacity="0.42" stroke-width="2">BTG</text>
+
+    <path d="M177 527L229 559L282 527" stroke="url(#crestGold)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M173 548L229 583L286 548" stroke="url(#crestGold)" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>
+

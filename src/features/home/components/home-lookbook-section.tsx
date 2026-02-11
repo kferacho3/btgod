@@ -7,11 +7,11 @@ export function HomeLookbookSection() {
   const lookbookPreview = lookbookFrames.slice(0, 3);
 
   return (
-    <section className="space-y-8">
+    <section className="space-y-8 border-t border-[var(--line)] pt-8">
       <SectionHeading
         eyebrow="Lookbook Lab"
-        title="Generate The Streets."
-        description="Visual references for campaign energy, mood, and styling direction."
+        title="Enter The Lookbook."
+        description="Campaign references and styling ideation for elevated street narratives."
         action={
           <Link href="/lookbook" className="btn-outline">
             View Full Lookbook
@@ -44,4 +44,3 @@ export function HomeLookbookSection() {
     </section>
   );
 }
-

@@ -4,7 +4,7 @@ import { collections } from "@/lib/catalog";
 
 export function HomeCollectionsSection() {
   return (
-    <section className="card-shell space-y-8 p-6 sm:p-8">
+    <section className="royal-shell space-y-8 p-6 sm:p-8">
       <SectionHeading
         eyebrow="Collection Index"
         title="Three Drops. Zero Noise."
@@ -19,7 +19,7 @@ export function HomeCollectionsSection() {
         {collections.map((collection) => (
           <article
             key={collection.id}
-            className="border border-[var(--line)] p-5 transition-colors hover:border-[var(--line-strong)]"
+            className="border border-[var(--line)] bg-[color-mix(in_srgb,var(--bg-elevated)_88%,transparent)] p-5 transition-colors hover:border-[var(--line-strong)]"
           >
             <p className="eyebrow">{collection.drop}</p>
             <h3 className="display-font mt-2 text-4xl leading-none tracking-[0.06em]">
@@ -37,4 +37,3 @@ export function HomeCollectionsSection() {
     </section>
   );
 }
-

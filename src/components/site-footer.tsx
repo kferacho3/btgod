@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLockup } from "@/components/brand-lockup";
 
 const footerLinks = [
   { href: "/collections", label: "Collections" },
@@ -10,17 +11,15 @@ const footerLinks = [
 export function SiteFooter() {
   return (
     <footer className="border-t border-[var(--line)]">
-      <div className="mx-auto flex w-full max-w-[1320px] flex-col gap-10 px-5 py-14 sm:px-8 lg:px-12">
-        <div className="card-shell grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.8fr_1.2fr]">
+      <div className="mx-auto flex w-full max-w-[1460px] flex-col gap-10 px-5 py-14 sm:px-8 lg:px-10">
+        <div className="royal-shell grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="space-y-4">
             <p className="eyebrow">Stay In The Loop</p>
-            <h2 className="display-font text-5xl leading-none tracking-[0.06em] sm:text-6xl">
-              BTGOD
-              <br />
-              Newsletter
+            <h2 className="display-font text-4xl leading-none tracking-[0.08em] sm:text-5xl">
+              BTGOD Newsletter
             </h2>
-            <p className="max-w-md text-sm uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-              Drop alerts, exclusive access, and private launch updates.
+            <p className="max-w-md text-[0.68rem] uppercase tracking-[0.17em] text-[var(--text-secondary)]">
+              Drop alerts, limited runs, and exclusive offers straight to your inbox.
             </p>
           </div>
           <form className="grid gap-3 sm:grid-cols-[1fr_auto]">
@@ -36,13 +35,13 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-wrap items-end justify-between gap-6 border-t border-[var(--line)] pt-6">
-          <div>
-            <p className="eyebrow">BTGOD • New York</p>
-            <p className="text-sm uppercase tracking-[0.2em] text-[var(--text-secondary)]">
-              Be The Greatest Or Die
+          <div className="space-y-2">
+            <BrandLockup compact />
+            <p className="text-[0.63rem] uppercase tracking-[0.2em] text-[var(--text-secondary)]">
+              New York City • Built For Greatness
             </p>
           </div>
-          <nav className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.2em] text-[var(--text-secondary)]">
+          <nav className="flex flex-wrap gap-4 text-[0.63rem] uppercase tracking-[0.2em] text-[var(--text-secondary)]">
             {footerLinks.map((link) => (
               <Link
                 key={link.href}
@@ -58,4 +57,3 @@ export function SiteFooter() {
     </footer>
   );
 }
-

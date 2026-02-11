@@ -7,11 +7,11 @@ export function HomeFeaturedProductsSection() {
   const featuredProducts = products.slice(0, 3);
 
   return (
-    <section className="space-y-8">
+    <section className="space-y-8 border-t border-[var(--line)] pt-8">
       <SectionHeading
-        eyebrow="Featured Grid"
-        title="City Armor Ready."
-        description="Engineered silhouettes for movement, confidence, and everyday dominance."
+        eyebrow="Shop • God-Level Essentials"
+        title="Curated Wear For Gods Only."
+        description="Sharp tailoring, clean outerwear, and heavyweight essentials for the daily mission."
         action={
           <Link href="/shop" className="btn-outline">
             Browse Full Shop
@@ -26,4 +26,3 @@ export function HomeFeaturedProductsSection() {
     </section>
   );
 }
-

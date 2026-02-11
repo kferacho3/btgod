@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SiteSidebar } from "@/components/site-sidebar";
 import { ThemeInitializer } from "@/components/theme-initializer";
 import "./globals.css";
 
@@ -36,9 +37,12 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
         <ThemeInitializer />
         <SiteHeader />
-        <main className="mx-auto flex w-full max-w-[1320px] flex-col gap-16 px-5 pb-16 pt-8 sm:px-8 lg:px-12">
-          {children}
-        </main>
+        <div className="mx-auto w-full max-w-[1460px] px-5 pb-14 pt-8 sm:px-8 lg:px-10">
+          <div className="grid gap-6 xl:grid-cols-[240px_minmax(0,1fr)]">
+            <SiteSidebar />
+            <main className="flex min-w-0 flex-col gap-16">{children}</main>
+          </div>
+        </div>
         <SiteFooter />
       </body>
     </html>
