@@ -33,14 +33,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased">
+      <body
+        className="antialiased"
+        style={{
+          paddingBottom: "env(safe-area-inset-bottom)",
+        }}
+      >
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
         <ThemeInitializer />
         <SiteHeader />
-        <div className="mx-auto w-full max-w-[1460px] px-5 pb-14 pt-8 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-[1460px] px-4 pb-12 pt-6 sm:px-8 sm:pb-14 sm:pt-8 lg:px-10">
           <div className="grid gap-6 xl:grid-cols-[240px_minmax(0,1fr)]">
             <SiteSidebar />
-            <main className="flex min-w-0 flex-col gap-16">{children}</main>
+            <main className="flex min-w-0 flex-col gap-12 sm:gap-16">{children}</main>
           </div>
         </div>
         <SiteFooter />

@@ -27,7 +27,7 @@ export function ProductCard({ product }: ProductCardProps) {
           className="object-cover grayscale-[8%] transition duration-700 group-hover:scale-[1.03]"
           priority={false}
         />
-        <span className="pill absolute left-4 top-4 bg-[color-mix(in_srgb,var(--bg-elevated)_90%,transparent)]">
+        <span className="pill surface-subtle absolute left-4 top-4">
           {product.badge}
         </span>
       </div>
@@ -50,16 +50,19 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <div className="mt-auto flex flex-wrap items-center justify-between gap-3">
-          <p className="display-font text-2xl tracking-[0.08em]">
+          <p className="display-font text-xl tracking-[0.08em] sm:text-2xl">
             {formatCurrency(product.price)}
           </p>
-          <div className="flex gap-2">
-            <Link href={`/shop/${product.slug}`} className="btn-outline h-9 px-3 py-0">
+          <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
+            <Link
+              href={`/shop/${product.slug}`}
+              className="btn-outline h-9 w-full px-3 py-0 sm:w-auto"
+            >
               View Piece
             </Link>
             <button
               type="button"
-              className="btn-solid h-9 px-3 py-0"
+              className="btn-solid h-9 w-full px-3 py-0 sm:w-auto"
               onClick={() => addToCart({ productSlug: product.slug })}
             >
               Add To Cart

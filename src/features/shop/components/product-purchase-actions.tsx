@@ -17,8 +17,8 @@ export function ProductPurchaseActions({
   const { addToCart } = useCartActions();
 
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <div className="flex gap-2">
+    <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
+      <div className="flex flex-wrap gap-2">
         {sizes.map((option) => (
           <button
             key={option}
@@ -34,7 +34,7 @@ export function ProductPurchaseActions({
       </div>
       <button
         type="button"
-        className="btn-solid"
+        className="btn-solid w-full sm:w-auto"
         onClick={() => addToCart({ productSlug, size })}
       >
         Add To Cart
@@ -42,4 +42,3 @@ export function ProductPurchaseActions({
     </div>
   );
 }
-

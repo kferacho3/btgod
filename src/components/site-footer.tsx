@@ -14,7 +14,7 @@ export function SiteFooter() {
       <div className="mx-auto flex w-full max-w-[1460px] flex-col gap-10 px-5 py-14 sm:px-8 lg:px-10">
         <div className="brand-banner px-4 py-2">
           <div className="banner-marquee">
-            <div className="banner-track text-[0.6rem] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
+            <div className="banner-track text-[0.58rem] uppercase tracking-[0.16em] text-[var(--text-secondary)] sm:tracking-[0.24em]">
               <span>Drop Alerts</span>
               <span className="metal-text">•</span>
               <span>Exclusive Events</span>
@@ -59,7 +59,7 @@ export function SiteFooter() {
               New York City • Built For Greatness
             </p>
           </div>
-          <nav className="flex flex-wrap gap-4 text-[0.63rem] uppercase tracking-[0.2em] text-[var(--text-secondary)]">
+          <nav className="flex w-full flex-wrap justify-start gap-4 text-[0.63rem] uppercase tracking-[0.2em] text-[var(--text-secondary)] sm:w-auto sm:justify-end">
             {footerLinks.map((link) => (
               <Link
                 key={link.href}

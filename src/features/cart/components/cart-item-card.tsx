@@ -26,7 +26,7 @@ export function CartItemCard({ item }: CartItemCardProps) {
 
       <div className="flex flex-col gap-3">
         <p className="eyebrow">{item.product.collection}</p>
-        <h2 className="display-font text-4xl leading-none tracking-[0.06em]">
+        <h2 className="display-font text-3xl leading-none tracking-[0.06em] sm:text-4xl">
           {item.product.name}
         </h2>
         <p className="text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
@@ -71,7 +71,7 @@ export function CartItemCard({ item }: CartItemCardProps) {
           </p>
           <button
             type="button"
-            className="btn-outline"
+            className="btn-outline w-full sm:w-auto"
             onClick={() =>
               removeCartItem({ productSlug: item.productSlug, size: item.size })
             }
@@ -83,4 +83,3 @@ export function CartItemCard({ item }: CartItemCardProps) {
     </article>
   );
 }
-

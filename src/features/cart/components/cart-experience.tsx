@@ -12,7 +12,7 @@ export function CartExperience() {
     <section className="card-shell space-y-7 p-6 sm:p-8">
       <div className="space-y-3">
         <p className="eyebrow">Cart Management</p>
-        <h1 className="display-font text-6xl leading-none tracking-[0.06em] sm:text-7xl">
+        <h1 className="display-font text-[clamp(2.25rem,8vw,4.5rem)] leading-none tracking-[0.06em]">
           Cart Aura
         </h1>
         <p className="text-sm uppercase tracking-[0.16em] text-[var(--text-secondary)]">
@@ -52,4 +52,3 @@ export function CartExperience() {
     </section>
   );
 }
-

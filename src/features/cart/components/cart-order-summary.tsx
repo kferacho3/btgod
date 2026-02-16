@@ -21,7 +21,7 @@ export function CartOrderSummary({
 
   return (
     <aside className="border border-[var(--line)] p-5">
-      <h2 className="display-font text-4xl leading-none tracking-[0.08em]">
+      <h2 className="display-font text-3xl leading-none tracking-[0.08em] sm:text-4xl">
         Order Summary
       </h2>
       <div className="mt-5 space-y-3 border-y border-[var(--line)] py-4 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
@@ -42,7 +42,7 @@ export function CartOrderSummary({
         <p className="text-xs uppercase tracking-[0.2em] text-[var(--text-secondary)]">
           Total
         </p>
-        <p className="display-font text-5xl tracking-[0.08em]">
+        <p className="display-font text-4xl tracking-[0.08em] sm:text-5xl">
           {formatCurrency(total)}
         </p>
       </div>
@@ -60,4 +60,3 @@ export function CartOrderSummary({
     </aside>
   );
 }
-

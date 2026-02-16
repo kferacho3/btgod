@@ -30,7 +30,7 @@ export default async function ProductDetailPage({
 
   return (
     <>
-      <section className="card-shell grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="card-shell grid gap-8 p-5 sm:p-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="relative aspect-[4/5] overflow-hidden border border-[var(--line)]">
           <Image
             src={product.image}
@@ -40,14 +40,14 @@ export default async function ProductDetailPage({
             className="object-cover grayscale-[14%]"
             priority
           />
-          <span className="pill absolute left-4 top-4 bg-[color-mix(in_srgb,var(--bg-elevated)_90%,transparent)]">
+          <span className="pill surface-subtle absolute left-4 top-4">
             {product.badge}
           </span>
         </div>
 
         <div className="space-y-7">
           <p className="eyebrow">{product.collection}</p>
-          <h1 className="display-font text-6xl leading-[0.9] tracking-[0.06em] sm:text-7xl">
+          <h1 className="display-font text-[clamp(2.2rem,8vw,4.4rem)] leading-[0.92] tracking-[0.06em]">
             {product.name}
           </h1>
           <p className="text-sm uppercase tracking-[0.16em] text-[var(--text-secondary)]">
@@ -74,11 +74,11 @@ export default async function ProductDetailPage({
             </p>
           </article>
           <div className="flex flex-wrap items-center gap-4 border-t border-[var(--line)] pt-5">
-            <p className="display-font text-5xl tracking-[0.08em]">
+            <p className="display-font text-4xl tracking-[0.08em] sm:text-5xl">
               {formatCurrency(product.price)}
             </p>
             <ProductPurchaseActions productSlug={product.slug} />
-            <Link href="/shop" className="btn-outline">
+            <Link href="/shop" className="btn-outline w-full sm:w-auto">
               Back To Shop
             </Link>
           </div>

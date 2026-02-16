@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { AnnouncementBanner } from "@/components/announcement-banner";
 import { BrandLockup } from "@/components/brand-lockup";
@@ -18,6 +19,7 @@ const utilityLinks = [
 ];
 
 export function SiteHeader() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const cartCount = useCartItemCount();
   const tickerItems = [
     "Be The Greatest Or Die",
@@ -49,8 +51,17 @@ export function SiteHeader() {
             <BrandLockup compact />
           </Link>
 
-          <div className="ml-auto flex items-center gap-2">
-            <div className="hidden gap-2 sm:flex">
+          <div className="ml-auto flex w-full flex-wrap items-center justify-end gap-2 sm:w-auto sm:flex-nowrap">
+            <button
+              type="button"
+              className="btn-outline h-9 px-3 py-0 md:hidden"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-site-menu"
+            >
+              {isMobileMenuOpen ? "Close" : "Menu"}
+            </button>
+            <div className="hidden gap-2 lg:flex">
               {utilityLinks.map((link) => (
                 <Link
                   key={`${link.href}-${link.label}`}
@@ -61,28 +72,50 @@ export function SiteHeader() {
                 </Link>
               ))}
             </div>
-            <Link href="/cart" className="btn-outline h-9 min-w-[6.4rem] px-3 py-0">
+            <Link
+              href="/cart"
+              className="btn-outline h-9 min-w-[5.6rem] px-3 py-0 sm:min-w-[6.4rem]"
+            >
               Cart ({cartCount})
             </Link>
             <ThemeToggle />
           </div>
         </div>
 
-        <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2 border border-[var(--line)] bg-[color-mix(in_srgb,var(--bg-elevated)_84%,transparent)] px-3 py-2 text-[0.64rem] uppercase tracking-[0.24em] text-[var(--text-secondary)] md:hidden">
-          {mainLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="transition-colors hover:text-[var(--text-primary)]"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        {isMobileMenuOpen ? (
+          <div
+            id="mobile-site-menu"
+            className="surface-soft rounded-sm border border-[var(--line)] px-3 py-3 md:hidden"
+          >
+            <nav className="grid gap-2 text-[0.68rem] uppercase tracking-[0.17em] text-[var(--text-secondary)]">
+              {mainLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-sm border border-[var(--line)] px-3 py-2 transition-colors hover:text-[var(--text-primary)]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="gold-divider my-1" />
+              {utilityLinks.map((link) => (
+                <Link
+                  key={`${link.href}-${link.label}-mobile`}
+                  href={link.href}
+                  className="rounded-sm border border-[var(--line)] px-3 py-2 transition-colors hover:text-[var(--text-primary)]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        ) : null}
 
         <div className="overflow-hidden border border-[var(--line)] bg-[var(--bg-elevated)] px-3 py-2">
           <div className="ticker-marquee">
-            <div className="ticker-track whitespace-nowrap text-lg tracking-[0.42em] sm:text-xl">
+            <div className="ticker-track whitespace-nowrap text-base tracking-[0.3em] sm:text-xl sm:tracking-[0.42em]">
               {tickerLoop.map((item, index) => (
                 <span
                   key={`${item}-${index}`}

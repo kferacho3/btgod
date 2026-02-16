@@ -54,9 +54,20 @@ html[data-theme="day"] {
   box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   position: relative;
-  min-height: 100vh;
+  min-height: 100dvh;
   background:
     radial-gradient(
       1200px circle at 3% -12%,
@@ -72,6 +83,9 @@ body {
   color: var(--text-primary);
   font-family: "Avenir Next", "Montserrat", "Segoe UI", sans-serif;
   letter-spacing: 0.015em;
+  line-height: 1.45;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 body::before {
@@ -138,12 +152,15 @@ a {
 
 .glass-shell {
   border: 1px solid var(--line);
+  background: rgba(9, 11, 16, 0.92);
   background: var(--backdrop);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .royal-shell {
   border: 1px solid var(--line);
+  background: rgba(13, 15, 20, 0.92);
   background: linear-gradient(
     160deg,
     color-mix(in srgb, var(--bg-elevated) 90%, transparent) 0%,
@@ -240,6 +257,7 @@ a {
 }
 
 .field-input::placeholder {
+  color: rgba(156, 148, 129, 0.78);
   color: color-mix(in srgb, var(--text-secondary) 70%, transparent);
 }
 
@@ -398,11 +416,36 @@ a {
 
 .brand-banner {
   border: 1px solid var(--line);
+  background: rgba(13, 15, 20, 0.92);
   background: linear-gradient(
     100deg,
     color-mix(in srgb, var(--bg-elevated) 88%, transparent) 0%,
     color-mix(in srgb, var(--bg-soft) 72%, transparent) 100%
   );
+}
+
+.surface-subtle {
+  background: rgba(16, 18, 24, 0.92);
+}
+
+.surface-soft {
+  background: rgba(13, 15, 20, 0.88);
+}
+
+@supports (background: color-mix(in srgb, white 50%, black 50%)) {
+  .surface-subtle {
+    background: color-mix(in srgb, var(--bg-elevated) 90%, transparent);
+  }
+
+  .surface-soft {
+    background: color-mix(in srgb, var(--bg-elevated) 84%, transparent);
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-shell {
+    background: rgba(10, 12, 18, 0.95);
+  }
 }
 
 @keyframes reveal-up {
@@ -487,12 +530,49 @@ a {
 }
 
 @media (max-width: 900px) {
+  .banner-track {
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .ticker-track {
+    gap: 1.2rem;
+  }
+
   .frame-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 640px) {
+  body::before {
+    opacity: 0.3;
+  }
+
+  body::after {
+    opacity: 0.12;
+  }
+
+  .eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+  }
+
+  .btn-solid,
+  .btn-outline {
+    letter-spacing: 0.14em;
+    font-size: 0.62rem;
+    padding: 0.72rem 0.9rem;
+  }
+
+  .banner-track {
+    animation-duration: 20s;
+  }
+
+  .ticker-track {
+    animation-duration: 22s;
+  }
+
   .frame-grid {
     grid-template-columns: minmax(0, 1fr);
   }

@@ -20,7 +20,7 @@ export function HomeCollectionsSection() {
         {collections.map((collection, index) => (
           <article
             key={collection.id}
-            className={`hover-lift border border-[var(--line)] bg-[color-mix(in_srgb,var(--bg-elevated)_88%,transparent)] p-5 transition-colors hover:border-[var(--line-strong)] reveal-up ${
+            className={`hover-lift surface-subtle border border-[var(--line)] p-5 transition-colors hover:border-[var(--line-strong)] reveal-up ${
               index === 0
                 ? "reveal-delay-1"
                 : index === 1

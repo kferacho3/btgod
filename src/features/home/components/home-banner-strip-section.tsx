@@ -21,7 +21,7 @@ export function HomeBannerStripSection() {
     <section className="space-y-4">
       <article className="brand-banner px-4 py-3">
         <div className="banner-marquee">
-          <div className="banner-track text-[0.63rem] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
+          <div className="banner-track text-[0.6rem] uppercase tracking-[0.16em] text-[var(--text-secondary)] sm:tracking-[0.24em]">
             {stripLoop.map((item, index) => (
               <span key={`${item}-${index}`} className="inline-flex items-center gap-3">
                 <span>{item}</span>
@@ -63,4 +63,3 @@ export function HomeBannerStripSection() {
     </section>
   );
 }
-

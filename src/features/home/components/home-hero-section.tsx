@@ -7,7 +7,7 @@ const heroImage =
 
 export function HomeHeroSection() {
   return (
-    <section className="royal-shell shine-border grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.15fr_0.85fr]">
+    <section className="royal-shell shine-border grid gap-8 p-5 sm:p-8 lg:grid-cols-[1.15fr_0.85fr]">
       <div className="flex flex-col gap-7">
         <p className="eyebrow reveal-up">Winter Drop 2026</p>
         <div className="relative h-14 w-48 reveal-up reveal-delay-1 sm:h-16 sm:w-60">
@@ -20,7 +20,7 @@ export function HomeHeroSection() {
             priority
           />
         </div>
-        <h1 className="display-font reveal-up reveal-delay-2 text-5xl leading-[0.9] tracking-[0.055em] sm:text-6xl lg:text-7xl">
+        <h1 className="display-font reveal-up reveal-delay-2 text-[clamp(2.35rem,8vw,4.2rem)] leading-[0.93] tracking-[0.04em] sm:tracking-[0.055em]">
           Be The Greatest
           <br />
           <span className="shimmer-text">Or Die</span>
@@ -28,11 +28,11 @@ export function HomeHeroSection() {
         <p className="reveal-up reveal-delay-2 max-w-2xl text-[0.72rem] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
           Dress like a god. Live like a legend. Swaggered minimalism with crown-tier precision, engineered for builders and grinders.
         </p>
-        <div className="reveal-up reveal-delay-3 flex flex-wrap gap-3">
-          <Link href="/shop" className="btn-solid">
+        <div className="reveal-up reveal-delay-3 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Link href="/shop" className="btn-solid w-full sm:w-auto">
             Shop The Drop
           </Link>
-          <Link href="/lookbook" className="btn-outline">
+          <Link href="/lookbook" className="btn-outline w-full sm:w-auto">
             Enter Lookbook
           </Link>
         </div>
@@ -44,7 +44,7 @@ export function HomeHeroSection() {
           {brandPillars.map((pillar, index) => (
             <article
               key={pillar.title}
-              className={`hover-lift border border-[var(--line)] bg-[color-mix(in_srgb,var(--bg-elevated)_88%,transparent)] p-4 reveal-up ${
+              className={`hover-lift surface-subtle border border-[var(--line)] p-4 reveal-up ${
                 index === 0
                   ? "reveal-delay-1"
                   : index === 1
@@ -63,7 +63,7 @@ export function HomeHeroSection() {
         </div>
       </div>
 
-      <article className="reveal-up reveal-delay-2 border border-[var(--line)] bg-[color-mix(in_srgb,var(--bg-elevated)_90%,transparent)] p-4">
+      <article className="surface-subtle reveal-up reveal-delay-2 border border-[var(--line)] p-4">
         <div className="relative aspect-[4/5] overflow-hidden border border-[var(--line)]">
           <Image
             src={heroImage}
@@ -74,7 +74,7 @@ export function HomeHeroSection() {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-          <span className="pill absolute left-4 top-4 bg-[color-mix(in_srgb,var(--bg-elevated)_90%,transparent)]">
+          <span className="pill surface-subtle absolute left-4 top-4">
             Crown Editorial
           </span>
           <div className="absolute right-4 top-4 h-[4.5rem] w-12 sm:h-24 sm:w-16">
@@ -88,11 +88,11 @@ export function HomeHeroSection() {
           </div>
         </div>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          <div className="border border-[var(--line)] bg-[color-mix(in_srgb,var(--bg-elevated)_88%,transparent)] p-3">
+          <div className="surface-subtle border border-[var(--line)] p-3">
             <p className="eyebrow">Brand Name</p>
             <p className="display-font text-3xl tracking-[0.08em] metal-text">BTGOD</p>
           </div>
-          <div className="border border-[var(--line)] bg-[color-mix(in_srgb,var(--bg-elevated)_88%,transparent)] p-3">
+          <div className="surface-subtle border border-[var(--line)] p-3">
             <p className="eyebrow">Expanded Form</p>
             <p className="text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
               Be The Greatest Or Die

@@ -27,7 +27,7 @@ export function ShopControls() {
         ))}
       </div>
 
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex w-full flex-wrap items-center gap-2 lg:w-auto lg:justify-end">
         <label htmlFor="shop-sort" className="eyebrow">
           Sort
         </label>
@@ -35,7 +35,7 @@ export function ShopControls() {
           id="shop-sort"
           value={shopSort}
           onChange={(event) => setShopSort(event.target.value as ShopSort)}
-          className="field-input h-10 min-w-[13rem] bg-[var(--bg-elevated)] py-0 text-[0.68rem]"
+          className="field-input h-10 w-full min-w-0 bg-[var(--bg-elevated)] py-0 text-[0.68rem] sm:w-auto sm:min-w-[13rem]"
         >
           {shopSortOptions.map((option) => (
             <option key={option.value} value={option.value}>
@@ -43,7 +43,11 @@ export function ShopControls() {
             </option>
           ))}
         </select>
-        <button type="button" onClick={resetShopControls} className="btn-outline h-10">
+        <button
+          type="button"
+          onClick={resetShopControls}
+          className="btn-outline h-10 w-full sm:w-auto"
+        >
           Reset
         </button>
       </div>
