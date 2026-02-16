@@ -18,8 +18,9 @@ export function SiteSidebar() {
   return (
     <aside className="hidden xl:block">
       <div className="sticky top-[11.5rem] space-y-5">
-        <article className="royal-shell space-y-5 p-4">
-          <div className="relative mx-auto h-36 w-24">
+        <article className="royal-shell hover-lift space-y-5 p-4">
+          <p className="eyebrow reveal-up">God Aura Index</p>
+          <div className="relative mx-auto h-36 w-24 crest-float reveal-up reveal-delay-1">
             <Image
               src="/brand/btgod-crest.svg"
               alt="BTGOD crest symbol"
@@ -28,13 +29,19 @@ export function SiteSidebar() {
               className="object-contain"
             />
           </div>
-          <div className="h-px w-full bg-[var(--line)]" />
+          <div className="gold-divider" />
           <nav className="grid gap-1 text-xs uppercase tracking-[0.2em] text-[var(--text-secondary)]">
-            {sidebarLinks.map((link) => (
+            {sidebarLinks.map((link, index) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="sidebar-link px-3 py-2 transition-colors hover:text-[var(--text-primary)]"
+                className={`sidebar-link px-3 py-2 transition-colors hover:text-[var(--text-primary)] reveal-up ${
+                  index === 0
+                    ? "reveal-delay-1"
+                    : index === 1
+                      ? "reveal-delay-2"
+                      : "reveal-delay-3"
+                }`}
               >
                 {link.label}
               </Link>
@@ -42,7 +49,7 @@ export function SiteSidebar() {
           </nav>
         </article>
 
-        <article className="royal-shell space-y-4 p-4">
+        <article className="brand-banner space-y-4 p-4 hover-lift">
           <p className="eyebrow">Code of Aura</p>
           <ul className="space-y-2">
             {signatures.map((line) => (
@@ -59,4 +66,3 @@ export function SiteSidebar() {
     </aside>
   );
 }
-

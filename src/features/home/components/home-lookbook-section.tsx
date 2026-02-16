@@ -7,7 +7,7 @@ export function HomeLookbookSection() {
   const lookbookPreview = lookbookFrames.slice(0, 3);
 
   return (
-    <section className="space-y-8 border-t border-[var(--line)] pt-8">
+    <section className="space-y-8 border-t border-[var(--line)] pt-8 reveal-up">
       <SectionHeading
         eyebrow="Lookbook Lab"
         title="Enter The Lookbook."
@@ -18,9 +18,19 @@ export function HomeLookbookSection() {
           </Link>
         }
       />
+      <div className="gold-divider" />
       <div className="frame-grid">
-        {lookbookPreview.map((frame) => (
-          <article key={frame.id} className="card-shell overflow-hidden">
+        {lookbookPreview.map((frame, index) => (
+          <article
+            key={frame.id}
+            className={`card-shell hover-lift overflow-hidden reveal-up ${
+              index === 0
+                ? "reveal-delay-1"
+                : index === 1
+                  ? "reveal-delay-2"
+                  : "reveal-delay-3"
+            }`}
+          >
             <div className="relative aspect-[4/5] border-b border-[var(--line)]">
               <Image
                 src={frame.image}

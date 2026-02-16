@@ -8,7 +8,7 @@ type BrandLockupProps = {
 export function BrandLockup({ showTagline = true, compact = false }: BrandLockupProps) {
   return (
     <div className="flex items-center gap-3">
-      <div className={compact ? "relative h-10 w-10" : "relative h-12 w-12"}>
+      <div className={`${compact ? "relative h-10 w-10" : "relative h-12 w-12"} crest-float`}>
         <Image
           src="/brand/btgod-crest.svg"
           alt="BTGOD crest symbol"
@@ -38,4 +38,3 @@ export function BrandLockup({ showTagline = true, compact = false }: BrandLockup
     </div>
   );
 }
-

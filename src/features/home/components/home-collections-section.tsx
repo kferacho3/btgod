@@ -4,7 +4,7 @@ import { collections } from "@/lib/catalog";
 
 export function HomeCollectionsSection() {
   return (
-    <section className="royal-shell space-y-8 p-6 sm:p-8">
+    <section className="royal-shell shine-border space-y-8 p-6 sm:p-8 reveal-up">
       <SectionHeading
         eyebrow="Collection Index"
         title="Three Drops. Zero Noise."
@@ -15,11 +15,18 @@ export function HomeCollectionsSection() {
           </Link>
         }
       />
+      <div className="gold-divider" />
       <div className="grid gap-4 md:grid-cols-3">
-        {collections.map((collection) => (
+        {collections.map((collection, index) => (
           <article
             key={collection.id}
-            className="border border-[var(--line)] bg-[color-mix(in_srgb,var(--bg-elevated)_88%,transparent)] p-5 transition-colors hover:border-[var(--line-strong)]"
+            className={`hover-lift border border-[var(--line)] bg-[color-mix(in_srgb,var(--bg-elevated)_88%,transparent)] p-5 transition-colors hover:border-[var(--line-strong)] reveal-up ${
+              index === 0
+                ? "reveal-delay-1"
+                : index === 1
+                  ? "reveal-delay-2"
+                  : "reveal-delay-3"
+            }`}
           >
             <p className="eyebrow">{collection.drop}</p>
             <h3 className="display-font mt-2 text-4xl leading-none tracking-[0.06em]">

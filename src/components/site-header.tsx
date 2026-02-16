@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { AnnouncementBanner } from "@/components/announcement-banner";
 import { BrandLockup } from "@/components/brand-lockup";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useCartItemCount } from "@/store/selectors";
@@ -18,10 +19,19 @@ const utilityLinks = [
 
 export function SiteHeader() {
   const cartCount = useCartItemCount();
+  const tickerItems = [
+    "Be The Greatest Or Die",
+    "Dress Like A God",
+    "Live Like A Legend",
+    "Never Regress",
+  ];
+  const tickerLoop = [...tickerItems, ...tickerItems];
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--line)] glass-shell">
       <div className="mx-auto flex w-full max-w-[1460px] flex-col gap-4 px-5 py-3 sm:px-8 lg:px-10">
+        <AnnouncementBanner />
+
         <div className="grid items-center gap-3 border border-[var(--line)] bg-[var(--bg-elevated)] px-3 py-3 md:grid-cols-[1fr_auto_1fr]">
           <nav className="hidden items-center gap-4 text-[0.62rem] uppercase tracking-[0.21em] text-[var(--text-secondary)] md:flex">
             {mainLinks.map((link) => (
@@ -71,10 +81,22 @@ export function SiteHeader() {
         </nav>
 
         <div className="overflow-hidden border border-[var(--line)] bg-[var(--bg-elevated)] px-3 py-2">
-          <p className="lux-ticker whitespace-nowrap text-center text-lg tracking-[0.43em] sm:text-xl">
-            BE THE GREATEST OR DIE  •  BE THE GREATEST OR DIE  •  BE THE GREATEST OR DIE
-          </p>
+          <div className="ticker-marquee">
+            <div className="ticker-track whitespace-nowrap text-lg tracking-[0.42em] sm:text-xl">
+              {tickerLoop.map((item, index) => (
+                <span
+                  key={`${item}-${index}`}
+                  className="inline-flex items-center gap-4 pr-8 lux-ticker"
+                >
+                  {item}
+                  <span className="text-[var(--metal-gold)]">✦</span>
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
+
+        <div className="gold-divider" />
       </div>
     </header>
   );

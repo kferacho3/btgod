@@ -7,7 +7,7 @@ export function HomeFeaturedProductsSection() {
   const featuredProducts = products.slice(0, 3);
 
   return (
-    <section className="space-y-8 border-t border-[var(--line)] pt-8">
+    <section className="space-y-8 border-t border-[var(--line)] pt-8 reveal-up">
       <SectionHeading
         eyebrow="Shop • God-Level Essentials"
         title="Curated Wear For Gods Only."
@@ -18,6 +18,7 @@ export function HomeFeaturedProductsSection() {
           </Link>
         }
       />
+      <div className="gold-divider" />
       <div className="grid gap-5 lg:grid-cols-3">
         {featuredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />

@@ -92,6 +92,26 @@ body::before {
     );
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.18;
+  background:
+    radial-gradient(
+      700px circle at 82% 18%,
+      color-mix(in srgb, var(--metal-gold-soft) 72%, transparent),
+      transparent 68%
+    ),
+    radial-gradient(
+      900px circle at 15% 84%,
+      color-mix(in srgb, var(--metal-gold-soft) 60%, transparent),
+      transparent 72%
+    );
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -262,6 +282,208 @@ a {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: reveal-up 720ms ease forwards;
+}
+
+.reveal-delay-1 {
+  animation-delay: 80ms;
+}
+
+.reveal-delay-2 {
+  animation-delay: 160ms;
+}
+
+.reveal-delay-3 {
+  animation-delay: 240ms;
+}
+
+.hover-lift {
+  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.34);
+  border-color: var(--line-strong);
+}
+
+.shine-border {
+  position: relative;
+  isolation: isolate;
+}
+
+.shine-border::after {
+  content: "";
+  position: absolute;
+  inset: -120% auto -120% -42%;
+  width: 48%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--metal-gold-bright) 72%, transparent) 52%,
+    transparent 100%
+  );
+  transform: rotate(13deg) translateX(-150%);
+  animation: border-glint 9s linear infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.34;
+  z-index: 2;
+}
+
+.crest-float {
+  animation: crest-float 4.8s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    100deg,
+    var(--metal-gold-deep) 10%,
+    var(--metal-gold-bright) 34%,
+    var(--metal-gold) 48%,
+    var(--metal-gold-bright) 66%,
+    var(--metal-gold-deep) 88%
+  );
+  background-size: 190% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-text 4.8s linear infinite;
+}
+
+.gold-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    color-mix(in srgb, var(--metal-gold) 68%, transparent) 20%,
+    color-mix(in srgb, var(--metal-gold-bright) 82%, transparent) 50%,
+    color-mix(in srgb, var(--metal-gold) 68%, transparent) 80%,
+    transparent 100%
+  );
+  animation: divider-pulse 3.8s ease-in-out infinite;
+}
+
+.banner-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.banner-track {
+  display: inline-flex;
+  min-width: max-content;
+  align-items: center;
+  gap: 2.4rem;
+  padding-right: 2.4rem;
+  animation: marquee-slide 24s linear infinite;
+}
+
+.ticker-marquee {
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: inline-flex;
+  min-width: max-content;
+  align-items: center;
+  gap: 2rem;
+  animation: marquee-slide 28s linear infinite;
+}
+
+.brand-banner {
+  border: 1px solid var(--line);
+  background: linear-gradient(
+    100deg,
+    color-mix(in srgb, var(--bg-elevated) 88%, transparent) 0%,
+    color-mix(in srgb, var(--bg-soft) 72%, transparent) 100%
+  );
+}
+
+@keyframes reveal-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee-slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer-text {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: 190% center;
+  }
+}
+
+@keyframes crest-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes border-glint {
+  0% {
+    transform: rotate(13deg) translateX(-150%);
+  }
+
+  100% {
+    transform: rotate(13deg) translateX(380%);
+  }
+}
+
+@keyframes divider-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up,
+  .crest-float,
+  .shimmer-text,
+  .banner-track,
+  .ticker-track,
+  .shine-border::after,
+  .gold-divider {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .hover-lift {
+    transition: none;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 900px) {

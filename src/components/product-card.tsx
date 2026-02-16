@@ -16,7 +16,7 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <article
       id={product.slug}
-      className="royal-shell group flex h-full flex-col overflow-hidden"
+      className="royal-shell hover-lift shine-border group flex h-full flex-col overflow-hidden"
     >
       <div className="relative aspect-[4/5] overflow-hidden border-b border-[var(--line)]">
         <Image
