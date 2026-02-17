@@ -6,6 +6,8 @@ export type BeatCategory =
   | "cinematic"
   | "club";
 
+export type LicenseTierCode = "S" | "M" | "L" | "XL";
+
 export type Product = {
   id: string;
   slug: string;
@@ -25,6 +27,10 @@ export type Product = {
   arrangement: string;
   licensingHint: string;
   usageTags: string[];
+  energy: string;
+  mood: string;
+  format: string;
+  releaseDate: string;
 };
 
 export type Collection = {
@@ -48,7 +54,7 @@ export type LookbookFrame = {
 export type CartPreviewItem = {
   productSlug: string;
   quantity: number;
-  size: "S" | "M" | "L" | "XL";
+  license: LicenseTierCode;
 };
 
 export type LabelStat = {
@@ -75,12 +81,18 @@ export type ChartHighlight = {
   growth: string;
 };
 
+export type ReleaseMilestone = {
+  month: string;
+  title: string;
+  detail: string;
+};
+
 export const products: Product[] = [
   {
     id: "B-001",
-    slug: "obsidian-command-jacket",
+    slug: "obsidian-command",
     name: "Obsidian Command",
-    subtitle: "Dark trap anthem with polished low-end and vocal pockets",
+    subtitle: "Dark trap anthem with polished low-end and elite vocal space",
     category: "trap",
     collection: "Noir Genesis",
     badge: "Top Chart",
@@ -92,16 +104,20 @@ export const products: Product[] = [
     musicalKey: "F# Minor",
     duration: "03:14",
     stems: 14,
-    sonicNotes: "Thunderous 808 stack, glassy bells, and wide choir pads",
-    arrangement: "8-bar hook intro, 2 verse pockets, bridge switch-up, hard outro",
-    licensingHint: "Most booked for artist singles, TikTok teaser cuts, and trailers",
+    sonicNotes: "Thunderous 808 stack, glassy bells, wide choir haze",
+    arrangement: "Hook intro, 2 verse pockets, bridge switch-up, hard outro",
+    licensingHint: "Best for artist singles, rollout teasers, and trailer cuts",
     usageTags: ["Artist Single", "Performance Intro", "Viral Snippet"],
+    energy: "10/10",
+    mood: "Cold authority",
+    format: "WAV + Stems",
+    releaseDate: "Jan 2026",
   },
   {
     id: "B-002",
-    slug: "steel-veil-hoodie",
+    slug: "steel-veil",
     name: "Steel Veil",
-    subtitle: "Melodic drill atmosphere with cinematic horns",
+    subtitle: "Melodic drill atmosphere with cinematic brass transitions",
     category: "drill",
     collection: "Noir Genesis",
     badge: "Label Pick",
@@ -113,16 +129,20 @@ export const products: Product[] = [
     musicalKey: "C Minor",
     duration: "02:58",
     stems: 12,
-    sonicNotes: "Sliding bass glides, reverse strings, textured snare layers",
-    arrangement: "Dynamic intro, section drops, beat pause moments for adlibs",
-    licensingHint: "Best for aggressive verses, cypher videos, and sync reels",
+    sonicNotes: "Sliding glides, reverse strings, textured snare lattices",
+    arrangement: "Dynamic intro, two pressure drops, adlib pause moments",
+    licensingHint: "Strong for drill verses, cypher content, and sync reels",
     usageTags: ["Drill Cut", "Cypher", "Sync Ready"],
+    energy: "9/10",
+    mood: "Focused tension",
+    format: "WAV + Tracked Stems",
+    releaseDate: "Jan 2026",
   },
   {
     id: "B-003",
-    slug: "halo-track-pant",
+    slug: "halo-track",
     name: "Halo Track",
-    subtitle: "R&B trap blend with late-night club bounce",
+    subtitle: "R&B trap crossover with glossy topline headroom",
     category: "rnb",
     collection: "Silver Discipline",
     badge: "New",
@@ -134,16 +154,20 @@ export const products: Product[] = [
     musicalKey: "A Minor",
     duration: "03:06",
     stems: 11,
-    sonicNotes: "Airy keys, pocketed claps, tape-saturated drum buss",
-    arrangement: "Hook-first arrangement with minimal verse space and breakdown",
-    licensingHint: "Great for melodic artists, dance edits, and mood visualizers",
+    sonicNotes: "Airy keys, pocketed claps, tape-sat drum bus",
+    arrangement: "Hook-first sequence, minimal verse lanes, lush breakdown",
+    licensingHint: "Great for melodic artists, dance edits, and mood reels",
     usageTags: ["R&B", "Late Night", "Dance Edit"],
+    energy: "7/10",
+    mood: "Velvet pressure",
+    format: "WAV + Radio Edit",
+    releaseDate: "Feb 2026",
   },
   {
     id: "B-004",
     slug: "cathedral-knit",
     name: "Cathedral Knit",
-    subtitle: "Afro-fusion groove with modern pop crossover energy",
+    subtitle: "Afro-fusion groove with pop crossover replay value",
     category: "afro",
     collection: "Silver Discipline",
     badge: "Restock",
@@ -155,16 +179,20 @@ export const products: Product[] = [
     musicalKey: "D Major",
     duration: "03:21",
     stems: 10,
-    sonicNotes: "Live percussion stack, warm bass, bright guitar motifs",
-    arrangement: "Open chorus arrangement with bridge pocket for featured verse",
-    licensingHint: "Strong for global crossover records and warm-weather campaigns",
+    sonicNotes: "Live percussion stack, warm bassline, bright guitar motifs",
+    arrangement: "Open chorus form, collab bridge pocket, final energy lift",
+    licensingHint: "High conversion for global pop and seasonal campaigns",
     usageTags: ["Afro", "Global Pop", "Campaign"],
+    energy: "8/10",
+    mood: "Warm command",
+    format: "WAV + Instrumental",
+    releaseDate: "Feb 2026",
   },
   {
     id: "B-005",
-    slug: "archangel-overcoat",
+    slug: "archangel-score",
     name: "Archangel Score",
-    subtitle: "Cinematic hybrid production for trailers and statement visuals",
+    subtitle: "Cinematic hybrid production built for major visual statements",
     category: "cinematic",
     collection: "Gold Testament",
     badge: "Exclusive",
@@ -176,16 +204,20 @@ export const products: Product[] = [
     musicalKey: "E Minor",
     duration: "03:42",
     stems: 19,
-    sonicNotes: "Epic braams, pulse synths, thunder percussion and choir swells",
-    arrangement: "Trailer-form arrangement with impact markers and tension risers",
-    licensingHint: "Booked for trailers, docs, esports intros, and ad campaigns",
+    sonicNotes: "Epic braams, pulse synths, thunder percussion, choir swells",
+    arrangement: "Trailer architecture with impact markers and tension risers",
+    licensingHint: "Booked for trailers, esports intros, and ad campaigns",
     usageTags: ["Cinematic", "Trailer", "High Impact"],
+    energy: "10/10",
+    mood: "Royal danger",
+    format: "WAV + Full Scoring Stems",
+    releaseDate: "Mar 2026",
   },
   {
     id: "B-006",
-    slug: "sanctum-tee",
+    slug: "sanctum-pulse",
     name: "Sanctum Pulse",
-    subtitle: "High-energy club-ready cut with glossy topline space",
+    subtitle: "High-energy club weapon with polished topline lanes",
     category: "club",
     collection: "Gold Testament",
     badge: "Fast Moving",
@@ -197,10 +229,64 @@ export const products: Product[] = [
     musicalKey: "G Minor",
     duration: "02:47",
     stems: 9,
-    sonicNotes: "Punchy kick, sidechained synth walls, bright topline risers",
-    arrangement: "DJ-friendly intro/outro with vocal pockets and drop variants",
+    sonicNotes: "Punchy kick, sidechained walls, bright melodic risers",
+    arrangement: "DJ intro/outro, hook variants, drop-ready lanes",
     licensingHint: "Ideal for club singles, dance reels, and branded edits",
     usageTags: ["Club", "Dance", "Festival"],
+    energy: "9/10",
+    mood: "Neon confidence",
+    format: "WAV + Performance Edit",
+    releaseDate: "Mar 2026",
+  },
+  {
+    id: "B-007",
+    slug: "crown-code",
+    name: "Crown Code",
+    subtitle: "Atmospheric drill-trap hybrid with chant-friendly hook space",
+    category: "drill",
+    collection: "Noir Genesis",
+    badge: "A&R Favorite",
+    price: 305,
+    image:
+      "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=1200&q=80",
+    producer: "Krown Atlas",
+    bpm: 145,
+    musicalKey: "G# Minor",
+    duration: "03:08",
+    stems: 13,
+    sonicNotes: "Stacked choirs, distorted plucks, drum breaks with air",
+    arrangement: "Callout intro, chant hook, verse lift, sparse bridge",
+    licensingHint: "Works best for headline tracks and walkout edits",
+    usageTags: ["Stadium", "Trap", "Walkout"],
+    energy: "9/10",
+    mood: "Triumphant threat",
+    format: "WAV + Master + Stems",
+    releaseDate: "Feb 2026",
+  },
+  {
+    id: "B-008",
+    slug: "silver-discipline",
+    name: "Silver Discipline",
+    subtitle: "Melodic club-R&B crossover with polished bounce",
+    category: "rnb",
+    collection: "Silver Discipline",
+    badge: "Trend Alert",
+    price: 255,
+    image:
+      "https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?auto=format&fit=crop&w=1200&q=80",
+    producer: "Midas Noir",
+    bpm: 122,
+    musicalKey: "B Minor",
+    duration: "03:18",
+    stems: 12,
+    sonicNotes: "Wide synth pads, velvet clap stack, dynamic sub movement",
+    arrangement: "8 bar lead-in, melodic hook, clean verse lanes, outro tag",
+    licensingHint: "Perfect for crossover records and sync-friendly cuts",
+    usageTags: ["Crossover", "R&B", "Sync"],
+    energy: "8/10",
+    mood: "Luxury glide",
+    format: "WAV + TV Mix",
+    releaseDate: "Mar 2026",
   },
 ];
 
@@ -210,7 +296,7 @@ export const collections: Collection[] = [
     title: "Noir Genesis",
     drop: "Drop 01",
     description:
-      "Dark, polished beats focused on trap and drill records for breakout singles.",
+      "Dark polished trap and drill records engineered for breakout singles.",
     mood: "Aggressive luxury",
     image:
       "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1400&q=80",
@@ -222,7 +308,7 @@ export const collections: Collection[] = [
     title: "Silver Discipline",
     drop: "Drop 02",
     description:
-      "Melodic and globally inspired production designed for crossover and replay value.",
+      "Melodic crossover production built for replay and global playlist lift.",
     mood: "Polished emotion",
     image:
       "https://images.unsplash.com/photo-1461784121038-f088ca1e7714?auto=format&fit=crop&w=1400&q=80",
@@ -234,12 +320,24 @@ export const collections: Collection[] = [
     title: "Gold Testament",
     drop: "Drop 03",
     description:
-      "Premium cinematic and club weapons built for major placements and headline records.",
+      "Premium cinematic and club records designed for major placements.",
     mood: "Royal impact",
     image:
       "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1400&q=80",
     trackCount: 16,
     releaseWindow: "Q3 2026",
+  },
+  {
+    id: "C-04",
+    title: "Apex Psalms",
+    drop: "Drop 04",
+    description:
+      "Hybrid faith-meets-street sonics for cinematic, anthem-grade moments.",
+    mood: "Sacred intensity",
+    image:
+      "https://images.unsplash.com/photo-1487180144351-b8472da7d491?auto=format&fit=crop&w=1400&q=80",
+    trackCount: 12,
+    releaseWindow: "Q4 2026",
   },
 ];
 
@@ -249,88 +347,88 @@ export const lookbookFrames: LookbookFrame[] = [
     title: "Stage Sovereign",
     image:
       "https://images.unsplash.com/photo-1516280030429-27679b3dc9cf?auto=format&fit=crop&w=1200&q=80",
-    prompt: "Arena backlight, monochrome wardrobe, crown-led silhouette language.",
+    prompt: "Arena backlight, crown silhouette, monochrome editorial pacing.",
   },
   {
     id: "L-002",
     title: "Control Room",
     image:
       "https://images.unsplash.com/photo-1461784180009-21121b2f204c?auto=format&fit=crop&w=1200&q=80",
-    prompt: "Console LEDs, noir reflections, producer lifestyle documentary framing.",
+    prompt: "Console LEDs, noir reflections, producer documentary texture.",
   },
   {
     id: "L-003",
-    title: "Street Campaign",
+    title: "Street Oracle",
     image:
       "https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=1200&q=80",
-    prompt: "Night city shoot, metallic highlights, label-grade campaign pacing.",
+    prompt: "Night city gradients, metallic highlights, campaign framing.",
   },
   {
     id: "L-004",
-    title: "After Hours Session",
+    title: "After Hours",
     image:
       "https://images.unsplash.com/photo-1525362081669-2b476bb628c3?auto=format&fit=crop&w=1200&q=80",
-    prompt: "Studio lamp pools, late-night writing, intimate artist/producer energy.",
+    prompt: "Late writing session, lamp pools, analog grit and glass textures.",
   },
   {
     id: "L-005",
     title: "Gold Pulse",
     image:
       "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&q=80",
-    prompt: "Warm metallic diffusion, packed crowd motion, elevated dance edits.",
+    prompt: "Warm metallic diffusion, kinetic crowd motion, crown accents.",
   },
   {
     id: "L-006",
     title: "Archive Vault",
     image:
       "https://images.unsplash.com/photo-1518991791750-74945f239f5f?auto=format&fit=crop&w=1200&q=80",
-    prompt: "Vinyl and hard-drive archive story, premium curation visuals.",
+    prompt: "Vinyl archive language, high contrast shelving, tactile nostalgia.",
   },
 ];
 
 export const cartPreview: CartPreviewItem[] = [
-  { productSlug: "obsidian-command-jacket", quantity: 1, size: "L" },
-  { productSlug: "cathedral-knit", quantity: 1, size: "M" },
+  { productSlug: "obsidian-command", quantity: 1, license: "M" },
+  { productSlug: "halo-track", quantity: 1, license: "S" },
 ];
 
 export const brandPillars = [
   {
-    title: "Label-Grade Curation",
+    title: "A&R First",
     description:
-      "Every beat is A&R reviewed for commercial potential and artist adaptability.",
+      "Every beat is reviewed for artist adaptability, replay value, and placement potential.",
   },
   {
-    title: "Elite Sound Design",
+    title: "Mix-Ready Masters",
     description:
-      "Mix-ready masters, premium stems, and dynamic headroom for modern platforms.",
+      "Premium loudness balance, clean transients, and stem architecture for quick delivery.",
   },
   {
-    title: "Placement-First Workflow",
+    title: "Global Catalog",
     description:
-      "Structure and licensing designed for fast turnaround across artists and sync.",
+      "Trap, drill, R&B, afro, and cinematic records tuned for worldwide release workflows.",
   },
 ];
 
 export const labelStats: LabelStat[] = [
   {
-    label: "Total Catalog",
+    label: "Catalog Size",
     value: "312",
     description: "Release-ready beats with full metadata and stems.",
   },
   {
     label: "Monthly Streams",
     value: "42.8M",
-    description: "Combined producer catalog traffic across partner platforms.",
+    description: "Partner platform traffic across producer rosters.",
   },
   {
     label: "Placements",
     value: "1,260+",
-    description: "Singles, sync campaigns, and label collaborations to date.",
+    description: "Singles, sync campaigns, and label collaborations.",
   },
   {
     label: "Avg. Delivery",
     value: "<12h",
-    description: "Typical turnaround for stems, alt mixes, and custom edits.",
+    description: "Typical turnaround for stems and alternate mixes.",
   },
 ];
 
@@ -340,7 +438,7 @@ export const producerSpotlights: ProducerSpotlight[] = [
     name: "Krown Atlas",
     city: "Atlanta",
     style: "Dark trap, hybrid orchestral bounce",
-    placements: "Future, G Herbo, two Netflix sync cuts",
+    placements: "Future camp, G Herbo sessions, Netflix sync cuts",
     image:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
   },
@@ -348,8 +446,8 @@ export const producerSpotlights: ProducerSpotlight[] = [
     id: "PR-02",
     name: "Midas Noir",
     city: "Toronto",
-    style: "R&B trap and atmospheric melodic records",
-    placements: "Kehlani camp, EA Sports trailer bundles",
+    style: "R&B trap and atmospheric melodic production",
+    placements: "Kehlani sessions, EA Sports trailer bundle",
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
   },
@@ -358,7 +456,7 @@ export const producerSpotlights: ProducerSpotlight[] = [
     name: "Nova Chamber",
     city: "Los Angeles",
     style: "Club-forward crossover and pop rhythm engineering",
-    placements: "Festival DJs, fitness brand campaigns",
+    placements: "Festival DJ packages, sports campaign edits",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
   },
@@ -367,7 +465,7 @@ export const producerSpotlights: ProducerSpotlight[] = [
 export const chartHighlights: ChartHighlight[] = [
   {
     id: "CH-01",
-    beatSlug: "obsidian-command-jacket",
+    beatSlug: "obsidian-command",
     rank: "#1 Trap",
     streams: "3.4M",
     saves: "182K",
@@ -375,7 +473,7 @@ export const chartHighlights: ChartHighlight[] = [
   },
   {
     id: "CH-02",
-    beatSlug: "steel-veil-hoodie",
+    beatSlug: "steel-veil",
     rank: "#3 Drill",
     streams: "2.1M",
     saves: "119K",
@@ -383,11 +481,19 @@ export const chartHighlights: ChartHighlight[] = [
   },
   {
     id: "CH-03",
-    beatSlug: "halo-track-pant",
+    beatSlug: "halo-track",
     rank: "#2 R&B",
     streams: "2.8M",
     saves: "143K",
     growth: "+24%",
+  },
+  {
+    id: "CH-04",
+    beatSlug: "archangel-score",
+    rank: "#1 Cinematic",
+    streams: "1.7M",
+    saves: "92K",
+    growth: "+31%",
   },
 ];
 
@@ -395,7 +501,7 @@ export const licensingTiers = [
   {
     code: "S" as const,
     name: "Starter",
-    description: "MP3 + WAV license for independent release and content use.",
+    description: "MP3 + WAV license for independent releases and content use.",
   },
   {
     code: "M" as const,
@@ -405,7 +511,7 @@ export const licensingTiers = [
   {
     code: "L" as const,
     name: "Label",
-    description: "Full stem suite, alt versions, campaign-safe paperwork.",
+    description: "Full stem suite, alternates, and campaign-safe paperwork.",
   },
   {
     code: "XL" as const,
@@ -414,21 +520,36 @@ export const licensingTiers = [
   },
 ];
 
-export const releaseTimeline = [
+export const releaseTimeline: ReleaseMilestone[] = [
   {
     month: "March 2026",
     title: "Noir Genesis: Volume II",
-    detail: "18 trap/drill records with cinematic bridges and vocal pockets.",
+    detail: "18 trap and drill records with cinematic bridges and vocal pockets.",
   },
   {
     month: "April 2026",
     title: "Silver Discipline: Artist Toolkit",
-    detail: "R&B + afro crossover bundle designed for playlist growth.",
+    detail: "R&B and afro crossover set designed for playlist acceleration.",
   },
   {
     month: "May 2026",
     title: "Gold Testament: Sync Edition",
-    detail: "Trailer-grade anthems formatted for ads, games, and teasers.",
+    detail: "Trailer-grade catalog formatted for ads, games, and teasers.",
+  },
+  {
+    month: "June 2026",
+    title: "Apex Psalms: Championship Cuts",
+    detail: "Faith-forward anthem package for arenas and documentary scores.",
   },
 ];
 
+export const productsBySlug = new Map(products.map((product) => [product.slug, product]));
+
+export const getProductBySlug = (slug: string) => productsBySlug.get(slug) ?? null;
+
+export const featuredProductSlugs = [
+  "obsidian-command",
+  "steel-veil",
+  "halo-track",
+  "archangel-score",
+];

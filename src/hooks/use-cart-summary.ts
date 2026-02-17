@@ -1,22 +1,20 @@
 "use client";
 
 import { useMemo } from "react";
-import { products } from "@/lib/catalog";
+import { productsBySlug } from "@/lib/catalog";
 import { useCartState } from "@/store/selectors";
-import type { ProductSize } from "@/store/types";
+import type { LicenseTierCode } from "@/lib/catalog";
 
-const SHIPPING_RATE = 18;
-const TAX_RATE = 0.08;
-
-const productLookup = new Map(products.map((product) => [product.slug, product]));
+const DELIVERY_RATE = 14;
+const TAX_RATE = 0.075;
 
 export type ResolvedCartItem = {
   key: string;
   productSlug: string;
   quantity: number;
-  size: ProductSize;
+  license: LicenseTierCode;
   lineTotal: number;
-  product: (typeof products)[number];
+  product: NonNullable<ReturnType<typeof productsBySlug.get>>;
 };
 
 export function useCartSummary() {
@@ -24,17 +22,17 @@ export function useCartSummary() {
 
   return useMemo(() => {
     const items: ResolvedCartItem[] = cartItems.flatMap((item) => {
-      const product = productLookup.get(item.productSlug);
+      const product = productsBySlug.get(item.productSlug);
       if (!product) {
         return [];
       }
 
       return [
         {
-          key: `${item.productSlug}-${item.size}`,
+          key: `${item.productSlug}-${item.license}`,
           productSlug: item.productSlug,
           quantity: item.quantity,
-          size: item.size,
+          license: item.license,
           lineTotal: product.price * item.quantity,
           product,
         },
@@ -42,14 +40,14 @@ export function useCartSummary() {
     });
 
     const subtotal = items.reduce((sum, item) => sum + item.lineTotal, 0);
-    const shipping = items.length > 0 ? SHIPPING_RATE : 0;
+    const delivery = items.length > 0 ? DELIVERY_RATE : 0;
     const tax = Math.round(subtotal * TAX_RATE);
-    const total = subtotal + shipping + tax;
+    const total = subtotal + delivery + tax;
 
     return {
       items,
       subtotal,
-      shipping,
+      delivery,
       tax,
       total,
       isEmpty: items.length === 0,

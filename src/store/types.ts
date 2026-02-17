@@ -1,34 +1,37 @@
+import type { BeatCategory, LicenseTierCode } from "@/lib/catalog";
+
 export type ThemeMode = "night" | "day";
-export type ProductSize = "S" | "M" | "L" | "XL";
-export type ShopFilter =
-  | "all"
-  | "outerwear"
-  | "knitwear"
-  | "bottoms"
-  | "essentials"
-  | "limited";
-export type ShopSort = "featured" | "price-asc" | "price-desc" | "name-asc";
+
+export type ShopFilter = "all" | BeatCategory | "trending" | "exclusive";
+
+export type ShopSort =
+  | "featured"
+  | "price-asc"
+  | "price-desc"
+  | "name-asc"
+  | "bpm-asc"
+  | "bpm-desc";
 
 export type CartItem = {
   productSlug: string;
   quantity: number;
-  size: ProductSize;
+  license: LicenseTierCode;
 };
 
 export type AddToCartPayload = {
   productSlug: string;
   quantity?: number;
-  size?: ProductSize;
+  license?: LicenseTierCode;
 };
 
 export type RemoveCartItemPayload = {
   productSlug: string;
-  size: ProductSize;
+  license: LicenseTierCode;
 };
 
 export type SetCartItemQuantityPayload = {
   productSlug: string;
-  size: ProductSize;
+  license: LicenseTierCode;
   quantity: number;
 };
 
@@ -56,4 +59,3 @@ export type AppStoreActions = {
 };
 
 export type AppStore = AppStoreState & AppStoreActions;
-

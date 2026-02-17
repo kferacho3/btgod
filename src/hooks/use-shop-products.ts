@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { products } from "@/lib/catalog";
 import { useShopState } from "@/store/selectors";
 
-const LIMITED_BADGES = new Set(["Limited", "Top Pick"]);
+const TREND_BADGES = new Set(["Top Chart", "Trend Alert", "Fast Moving"]);
 
 export function useShopProducts() {
   const { shopFilter, shopSort } = useShopState();
@@ -12,8 +12,10 @@ export function useShopProducts() {
   return useMemo(() => {
     let filtered = [...products];
 
-    if (shopFilter === "limited") {
-      filtered = filtered.filter((product) => LIMITED_BADGES.has(product.badge));
+    if (shopFilter === "trending") {
+      filtered = filtered.filter((product) => TREND_BADGES.has(product.badge));
+    } else if (shopFilter === "exclusive") {
+      filtered = filtered.filter((product) => product.badge === "Exclusive");
     } else if (shopFilter !== "all") {
       filtered = filtered.filter((product) => product.category === shopFilter);
     }
@@ -28,6 +30,12 @@ export function useShopProducts() {
       case "name-asc":
         filtered.sort((a, b) => a.name.localeCompare(b.name));
         break;
+      case "bpm-asc":
+        filtered.sort((a, b) => a.bpm - b.bpm);
+        break;
+      case "bpm-desc":
+        filtered.sort((a, b) => b.bpm - a.bpm);
+        break;
       case "featured":
       default:
         break;
@@ -36,4 +44,3 @@ export function useShopProducts() {
     return filtered;
   }, [shopFilter, shopSort]);
 }
-

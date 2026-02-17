@@ -6,36 +6,35 @@ import { CartOrderSummary } from "@/features/cart/components/cart-order-summary"
 import { useCartSummary } from "@/hooks/use-cart-summary";
 
 export function CartExperience() {
-  const { items, subtotal, shipping, tax, total, isEmpty } = useCartSummary();
+  const { items, subtotal, delivery, tax, total, isEmpty } = useCartSummary();
 
   return (
     <section className="card-shell space-y-7 p-6 sm:p-8">
       <div className="space-y-3">
         <p className="eyebrow">Cart Management</p>
         <h1 className="display-font text-[clamp(2.25rem,8vw,4.5rem)] leading-none tracking-[0.06em]">
-          Cart Aura
+          License Cart
         </h1>
         <p className="text-sm uppercase tracking-[0.16em] text-[var(--text-secondary)]">
-          Centralized state powered by Zustand for quantity, totals, and item
-          controls.
+          Manage your selected beats, license tiers, and checkout-ready totals from one command center.
         </p>
       </div>
 
       {isEmpty ? (
         <article className="border border-[var(--line)] p-6">
-          <p className="eyebrow">No Items</p>
+          <p className="eyebrow">No Licenses Added</p>
           <h2 className="display-font mt-2 text-5xl leading-none tracking-[0.07em]">
             Your Cart Is Empty
           </h2>
           <p className="mt-3 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-            Add pieces from the shop to start your order.
+            Add beats from the catalog to start your licensing bundle.
           </p>
           <Link href="/shop" className="btn-solid mt-5">
-            Go To Shop
+            Browse Beat Vault
           </Link>
         </article>
       ) : (
-        <div className="grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
+        <div className="grid gap-6 xl:grid-cols-[1.25fr_0.75fr]">
           <div className="grid gap-4">
             {items.map((item) => (
               <CartItemCard key={item.key} item={item} />
@@ -43,7 +42,7 @@ export function CartExperience() {
           </div>
           <CartOrderSummary
             subtotal={subtotal}
-            shipping={shipping}
+            delivery={delivery}
             tax={tax}
             total={total}
           />

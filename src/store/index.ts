@@ -3,19 +3,13 @@
 import { create } from "zustand";
 import { persist, subscribeWithSelector } from "zustand/middleware";
 import { cartPreview } from "@/lib/catalog";
-import type {
-  AddToCartPayload,
-  AppStore,
-  AppStoreState,
-  CartItem,
-  ProductSize,
-  ThemeMode,
-} from "@/store/types";
+import type { AddToCartPayload, AppStore, AppStoreState, CartItem, ThemeMode } from "@/store/types";
+import type { LicenseTierCode } from "@/lib/catalog";
 
 const STORE_KEY = "btgod-store";
 const THEME_STORAGE_KEY = "btgod-theme";
 const DEFAULT_LOOKBOOK_PROMPT =
-  "New York winter fashion editorial, monochrome, sharp tailoring, street photography";
+  "Noir rap visualizer, crown motif, black and gold lighting, cinematic camera movement";
 
 const clampQuantity = (quantity: number) => Math.max(1, Math.min(quantity, 99));
 
@@ -30,8 +24,11 @@ const writeThemeToStorage = (theme: ThemeMode) => {
 const findCartItemIndex = (
   items: CartItem[],
   productSlug: string,
-  size: ProductSize,
-) => items.findIndex((item) => item.productSlug === productSlug && item.size === size);
+  license: LicenseTierCode,
+) =>
+  items.findIndex(
+    (item) => item.productSlug === productSlug && item.license === license,
+  );
 
 const initialState: AppStoreState = {
   theme: "night",
@@ -44,11 +41,11 @@ const initialState: AppStoreState = {
 
 const addToCartReducer = (items: CartItem[], payload: AddToCartPayload): CartItem[] => {
   const quantity = clampQuantity(payload.quantity ?? 1);
-  const size = payload.size ?? "M";
-  const index = findCartItemIndex(items, payload.productSlug, size);
+  const license = payload.license ?? "M";
+  const index = findCartItemIndex(items, payload.productSlug, license);
 
   if (index === -1) {
-    return [...items, { productSlug: payload.productSlug, quantity, size }];
+    return [...items, { productSlug: payload.productSlug, quantity, license }];
   }
 
   return items.map((item, itemIndex) =>
@@ -85,16 +82,17 @@ export const useAppStore = create<AppStore>()(
           set((state) => ({
             cartItems: addToCartReducer(state.cartItems, payload),
           })),
-        removeCartItem: ({ productSlug, size }) =>
+        removeCartItem: ({ productSlug, license }) =>
           set((state) => ({
             cartItems: state.cartItems.filter(
-              (item) => item.productSlug !== productSlug || item.size !== size,
+              (item) =>
+                item.productSlug !== productSlug || item.license !== license,
             ),
           })),
-        setCartItemQuantity: ({ productSlug, size, quantity }) =>
+        setCartItemQuantity: ({ productSlug, license, quantity }) =>
           set((state) => ({
             cartItems: state.cartItems.map((item) =>
-              item.productSlug === productSlug && item.size === size
+              item.productSlug === productSlug && item.license === license
                 ? { ...item, quantity: clampQuantity(quantity) }
                 : item,
             ),
@@ -120,4 +118,3 @@ export const useAppStore = create<AppStore>()(
     ),
   ),
 );
-
