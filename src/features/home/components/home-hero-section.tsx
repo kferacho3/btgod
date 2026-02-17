@@ -12,7 +12,7 @@ export function HomeHeroSection() {
         <p className="eyebrow reveal-up">Winter Drop 2026</p>
         <div className="relative h-14 w-48 reveal-up reveal-delay-1 sm:h-16 sm:w-60">
           <Image
-            src="/brand/btgod-wordmark.svg"
+            src="/BTGOD-logo.png"
             alt="BTGOD wordmark"
             fill
             sizes="240px"
@@ -79,7 +79,7 @@ export function HomeHeroSection() {
           </span>
           <div className="absolute right-4 top-4 h-[4.5rem] w-12 sm:h-24 sm:w-16">
             <Image
-              src="/brand/btgod-crest.svg"
+              src="/BTGOD-symbol.png"
               alt="BTGOD crest overlay"
               fill
               sizes="64px"

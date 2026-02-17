@@ -27,7 +27,7 @@ export function HomeBannerStripSection() {
                 <span>{item}</span>
                 <span className="relative h-4 w-3">
                   <Image
-                    src="/brand/btgod-crest.svg"
+                    src="/BTGOD-symbol.png"
                     alt=""
                     aria-hidden
                     fill

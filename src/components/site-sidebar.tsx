@@ -22,7 +22,7 @@ export function SiteSidebar() {
           <p className="eyebrow reveal-up">God Aura Index</p>
           <div className="relative mx-auto h-36 w-24 crest-float reveal-up reveal-delay-1">
             <Image
-              src="/brand/btgod-crest.svg"
+              src="/BTGOD-symbol.png"
               alt="BTGOD crest symbol"
               fill
               sizes="96px"

@@ -19,7 +19,7 @@ export function AnnouncementBanner() {
               <span>{item}</span>
               <span className="relative h-4 w-3 crest-float">
                 <Image
-                  src="/brand/btgod-crest.svg"
+                  src="/BTGOD-symbol.png"
                   alt=""
                   aria-hidden
                   fill

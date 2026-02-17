@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ScrollAmbience } from "@/components/scroll-ambience";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SiteSidebar } from "@/components/site-sidebar";
@@ -41,6 +42,7 @@ export default function RootLayout({
       >
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
         <ThemeInitializer />
+        <ScrollAmbience />
         <SiteHeader />
         <div className="mx-auto w-full max-w-[1460px] px-4 pb-12 pt-6 sm:px-8 sm:pb-14 sm:pt-8 lg:px-10">
           <div className="grid gap-6 xl:grid-cols-[240px_minmax(0,1fr)]">
