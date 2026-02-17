@@ -1,18 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { chartHighlights, productsBySlug } from "@/lib/catalog";
+import { productsBySlug, trendHighlights } from "@/lib/catalog";
 
 const sidebarLinks = [
-  { href: "/shop", label: "Browse Beats" },
-  { href: "/collections", label: "Current Drops" },
-  { href: "/lookbook", label: "Visual Lab" },
-  { href: "/cart", label: "License Cart" },
-  { href: "/account", label: "Artist Access" },
+  { href: "/shop", label: "Shop Drop" },
+  { href: "/collections", label: "Collections" },
+  { href: "/lookbook", label: "Lookbook" },
+  { href: "/cart", label: "Cart" },
+  { href: "/account", label: "Account" },
 ];
 
 const signatures = [
   "Dress Like A God",
-  "Sound Like A Legend",
+  "Live Like A Legend",
   "Never Regress",
 ];
 
@@ -53,16 +53,19 @@ export function SiteSidebar() {
         </article>
 
         <article className="brand-banner space-y-4 p-4 hover-lift">
-          <p className="eyebrow">Chart Command</p>
+          <p className="eyebrow">Trend Command</p>
           <ul className="space-y-3">
-            {chartHighlights.slice(0, 3).map((item) => {
-              const product = productsBySlug.get(item.beatSlug);
+            {trendHighlights.slice(0, 3).map((item) => {
+              const product = productsBySlug.get(item.productSlug);
               if (!product) {
                 return null;
               }
 
               return (
-                <li key={item.id} className="space-y-1 border-b border-[var(--line)] pb-3 last:border-b-0 last:pb-0">
+                <li
+                  key={item.id}
+                  className="space-y-1 border-b border-[var(--line)] pb-3 last:border-b-0 last:pb-0"
+                >
                   <p className="text-[0.64rem] uppercase tracking-[0.18em] text-[var(--metal-gold)]">
                     {item.rank}
                   </p>
@@ -70,7 +73,7 @@ export function SiteSidebar() {
                     {product.name}
                   </p>
                   <p className="text-[0.6rem] uppercase tracking-[0.14em] text-[var(--text-secondary)]">
-                    Streams {item.streams}
+                    Sell-through {item.sellThrough}
                   </p>
                 </li>
               );

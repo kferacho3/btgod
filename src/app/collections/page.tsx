@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SectionHeading } from "@/components/section-heading";
-import { chartHighlights, collections, productsBySlug, releaseTimeline } from "@/lib/catalog";
+import { collections, productsBySlug, releaseTimeline, trendHighlights } from "@/lib/catalog";
 
 export default function CollectionsPage() {
   return (
@@ -9,18 +9,18 @@ export default function CollectionsPage() {
       <section className="card-shell space-y-8 p-6 sm:p-8">
         <SectionHeading
           eyebrow="Collection Index"
-          title="Drop Universe"
-          description="A structured release cadence with dedicated sonic lanes, chart strategy, and producer intent."
+          title="Four Pillars Of Luxury"
+          description="A disciplined release cadence that blends runway-level detail with street-level authority."
           action={
             <Link href="/shop" className="btn-outline">
-              Shop All Beats
+              Shop All Pieces
             </Link>
           }
         />
 
         <div className="grid gap-6">
           {collections.map((collection) => {
-            const anchorBeat = Array.from(productsBySlug.values()).find(
+            const anchorPiece = Array.from(productsBySlug.values()).find(
               (product) => product.collection === collection.title,
             );
 
@@ -57,9 +57,9 @@ export default function CollectionsPage() {
                       </p>
                     </article>
                     <article className="border border-[var(--line)] p-4">
-                      <p className="eyebrow">Tracks</p>
+                      <p className="eyebrow">Pieces</p>
                       <p className="mt-2 text-xs uppercase tracking-[0.14em] text-[var(--text-secondary)]">
-                        {collection.trackCount} records
+                        {collection.pieceCount} pieces
                       </p>
                     </article>
                     <article className="border border-[var(--line)] p-4">
@@ -71,20 +71,20 @@ export default function CollectionsPage() {
                   </div>
 
                   <article className="border border-[var(--line)] p-4">
-                    <p className="eyebrow">Anchor Beat</p>
+                    <p className="eyebrow">Anchor Piece</p>
                     <p className="mt-2 text-xs uppercase tracking-[0.14em] text-[var(--text-secondary)]">
-                      {anchorBeat
-                        ? `${anchorBeat.name} • ${anchorBeat.producer} • ${anchorBeat.bpm} BPM`
+                      {anchorPiece
+                        ? `${anchorPiece.name} • ${anchorPiece.colorway}`
                         : "Catalog index updating"}
                     </p>
                   </article>
 
                   <div className="mt-auto flex flex-wrap gap-3 border-t border-[var(--line)] pt-4">
                     <Link href="/shop" className="btn-solid">
-                      License This Drop
+                      Shop This Drop
                     </Link>
                     <Link href="/lookbook" className="btn-outline">
-                      Open Visual Lab
+                      View Moodboard
                     </Link>
                   </div>
                 </div>
@@ -113,24 +113,24 @@ export default function CollectionsPage() {
         </article>
 
         <article className="royal-shell space-y-4 p-5 sm:p-6">
-          <p className="eyebrow">Live Chart Moments</p>
+          <p className="eyebrow">Live Trend Moments</p>
           <div className="grid gap-3">
-            {chartHighlights.map((highlight) => {
-              const beat = productsBySlug.get(highlight.beatSlug);
-              if (!beat) {
+            {trendHighlights.map((trend) => {
+              const product = productsBySlug.get(trend.productSlug);
+              if (!product) {
                 return null;
               }
 
               return (
-                <article key={highlight.id} className="border border-[var(--line)] p-4">
+                <article key={trend.id} className="border border-[var(--line)] p-4">
                   <p className="display-font text-3xl leading-none tracking-[0.07em]">
-                    {highlight.rank}
+                    {trend.rank}
                   </p>
                   <p className="mt-2 text-[0.66rem] uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-                    {beat.name} • {beat.producer}
+                    {product.name} • {product.collection}
                   </p>
                   <p className="mt-1 text-[0.62rem] uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-                    {highlight.streams} streams • {highlight.saves} saves • {highlight.growth}
+                    Sell-through {trend.sellThrough} • Wishlist {trend.wishlist} • {trend.growth}
                   </p>
                 </article>
               );

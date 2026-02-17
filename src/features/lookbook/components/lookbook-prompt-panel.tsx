@@ -4,12 +4,12 @@ import type { FormEvent } from "react";
 import { useLookbookActions, useLookbookState } from "@/store/selectors";
 
 const promptTags = [
-  "Crown-lit performance tunnel",
-  "Noir studio texture",
-  "Gold rim light",
-  "Rain-slick city blocks",
-  "Monochrome wardrobe discipline",
-  "High contrast editorial grain",
+  "Runway concrete set",
+  "Black and gold editorial",
+  "Chrome hardware macro",
+  "Luxury street portrait",
+  "Monochrome wardrobe block",
+  "Soft spotlight texture",
 ];
 
 export function LookbookPromptPanel() {
@@ -46,7 +46,7 @@ export function LookbookPromptPanel() {
           onChange={(event) => setLookbookPrompt(event.target.value)}
         />
         <button type="submit" className="btn-solid h-12 min-w-36">
-          Generate Visuals
+          Generate Looks
         </button>
       </form>
     </article>

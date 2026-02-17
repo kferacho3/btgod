@@ -6,12 +6,12 @@ export function HomeCollectionsSection() {
   return (
     <section className="royal-shell shine-border space-y-8 p-6 sm:p-8 reveal-up">
       <SectionHeading
-        eyebrow="Drop Architecture"
-        title="Four Drops. One Standard."
-        description="Each BTGOD collection serves a clear sonic lane with a strict quality bar and release cadence."
+        eyebrow="Collection Index"
+        title="Four Drops. Zero Noise."
+        description="Seasonal capsules built with strict visual language and upper-echelon finish quality."
         action={
           <Link href="/collections" className="btn-outline">
-            View Full Schedule
+            Shop Collections
           </Link>
         }
       />
@@ -37,7 +37,7 @@ export function HomeCollectionsSection() {
               {collection.description}
             </p>
             <p className="mt-4 text-[0.68rem] uppercase tracking-[0.2em] text-[var(--metal-silver)]">
-              {collection.trackCount} tracks • {collection.releaseWindow}
+              {collection.pieceCount} pieces • {collection.releaseWindow}
             </p>
           </article>
         ))}

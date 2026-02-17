@@ -6,16 +6,16 @@ import { lookbookFrames } from "@/lib/catalog";
 
 const visualDirections = [
   {
-    title: "Noir Performance",
-    detail: "Stage smoke, hard key light, black-and-gold wardrobe hierarchy.",
+    title: "Crown Noir",
+    detail: "Black tailoring, hard shadow, gold crest punctuation.",
   },
   {
-    title: "Street Oracle",
-    detail: "Urban movement, chrome textures, handheld documentary framing.",
+    title: "Arena Luxe",
+    detail: "Stage-ready silhouettes with elevated performance utility.",
   },
   {
-    title: "Crown Minimal",
-    detail: "Negative space, disciplined typography, luxury-neutral palette.",
+    title: "Quiet Wealth",
+    detail: "Minimal linework, rich fabrics, confident restraint.",
   },
 ];
 
@@ -25,11 +25,11 @@ export default function LookbookPage() {
       <section className="card-shell space-y-8 p-6 sm:p-8">
         <SectionHeading
           eyebrow="Lookbook Lab"
-          title="Build The Visual World"
-          description="Craft campaign prompts, visualizer references, and rollout aesthetics aligned with BTGOD sonic identity."
+          title="Build The Brand World"
+          description="Style references and campaign direction for every capsule narrative."
           action={
             <Link href="/shop" className="btn-outline">
-              Open Beat Vault
+              Open Shop
             </Link>
           }
         />

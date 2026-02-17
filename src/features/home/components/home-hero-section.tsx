@@ -1,18 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { brandPillars, chartHighlights, labelStats, productsBySlug } from "@/lib/catalog";
+import { brandPillars, labelStats, productsBySlug, trendHighlights } from "@/lib/catalog";
 
 const heroImage =
   "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1400&q=80";
 
 export function HomeHeroSection() {
-  const leadChart = chartHighlights[0];
-  const leadProduct = productsBySlug.get(leadChart.beatSlug);
+  const leadTrend = trendHighlights[0];
+  const leadProduct = productsBySlug.get(leadTrend.productSlug);
 
   return (
     <section className="royal-shell shine-border grid gap-8 p-5 sm:p-8 xl:grid-cols-[1.1fr_0.9fr]">
       <div className="flex flex-col gap-7">
-        <p className="eyebrow reveal-up">Season 2026 • Global Catalog</p>
+        <p className="eyebrow reveal-up">Winter Capsule 2026</p>
 
         <h1 className="display-font reveal-up reveal-delay-1 text-[clamp(2.4rem,8vw,4.5rem)] leading-[0.9] tracking-[0.05em] sm:tracking-[0.06em]">
           Be The Greatest
@@ -21,17 +21,16 @@ export function HomeHeroSection() {
         </h1>
 
         <p className="reveal-up reveal-delay-2 max-w-2xl text-[0.72rem] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
-          Premium beat marketplace and record-label experience built for artists, A&R teams,
-          and creators who move culture. Curated drops, elite producers, and licensing that
-          moves at campaign speed.
+          High-luxury fashion for rappers, athletes, and creators. Minimalism with power,
+          crafted in blacks, whites, gold, and silver with elite tailoring discipline.
         </p>
 
         <div className="reveal-up reveal-delay-3 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Link href="/shop" className="btn-solid w-full sm:w-auto">
-            Explore Beat Vault
+            Shop The Drop
           </Link>
-          <Link href="/collections" className="btn-outline w-full sm:w-auto">
-            View Live Drops
+          <Link href="/lookbook" className="btn-outline w-full sm:w-auto">
+            Enter Lookbook
           </Link>
         </div>
 
@@ -84,15 +83,15 @@ export function HomeHeroSection() {
 
           {leadProduct ? (
             <div className="mt-4 border border-[var(--line)] p-3">
-              <p className="eyebrow">Chart Leader</p>
+              <p className="eyebrow">Trend Leader</p>
               <p className="display-font mt-2 text-3xl leading-none tracking-[0.08em]">
-                {leadChart.rank}
+                {leadTrend.rank}
               </p>
               <p className="mt-2 text-[0.64rem] uppercase tracking-[0.16em] text-[var(--text-secondary)]">
-                {leadProduct.name} • {leadProduct.producer}
+                {leadProduct.name} • {leadProduct.collection}
               </p>
               <p className="mt-1 text-[0.62rem] uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-                {leadChart.streams} streams • {leadChart.growth} growth
+                Sell-through {leadTrend.sellThrough} • {leadTrend.growth} growth
               </p>
             </div>
           ) : null}

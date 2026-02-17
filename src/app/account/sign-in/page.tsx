@@ -4,26 +4,26 @@ export default function SignInPage() {
   return (
     <section className="card-shell grid gap-8 p-6 sm:p-8 xl:grid-cols-[1fr_1fr]">
       <div className="space-y-6">
-        <p className="eyebrow">Member Sign In</p>
+        <p className="eyebrow">Account Sign In</p>
         <h1 className="display-font text-6xl leading-[0.88] tracking-[0.06em] sm:text-7xl">
           STEP INTO
           <br />
-          THE CATALOG
+          THE AURA
         </h1>
         <p className="max-w-lg text-sm uppercase tracking-[0.16em] text-[var(--text-secondary)]">
-          Sign in to manage licensing history, save beat crates, and unlock private BTGOD drops.
+          Sign in to manage orders, track drops, save favorites, and unlock members-only launches.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
           <article className="border border-[var(--line)] p-4">
             <p className="eyebrow">Member Perk</p>
             <p className="mt-2 text-xs uppercase tracking-[0.14em] text-[var(--text-secondary)]">
-              Early access to unreleased chart candidates.
+              Early access to limited capsule releases.
             </p>
           </article>
           <article className="border border-[var(--line)] p-4">
             <p className="eyebrow">Member Perk</p>
             <p className="mt-2 text-xs uppercase tracking-[0.14em] text-[var(--text-secondary)]">
-              One-click relicense on saved campaigns.
+              Saved size profile for faster checkout.
             </p>
           </article>
         </div>
