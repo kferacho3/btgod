@@ -8,9 +8,9 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { useCartItemCount } from "@/store/selectors";
 
 const mainLinks = [
-  { href: "/shop", label: "Beat Vault" },
-  { href: "/collections", label: "Drops" },
-  { href: "/lookbook", label: "Visual Lab" },
+  { href: "/shop", label: "Shop" },
+  { href: "/collections", label: "Collections" },
+  { href: "/lookbook", label: "Lookbook" },
 ];
 
 const utilityLinks = [
@@ -20,8 +20,8 @@ const utilityLinks = [
 
 const tickerItems = [
   "Be The Greatest Or Die",
-  "Chart-Ready Catalog",
-  "Crown-Grade Sound",
+  "Dress Like A God",
+  "Live Like A Legend",
   "Never Regress",
 ];
 

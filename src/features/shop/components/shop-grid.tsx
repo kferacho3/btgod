@@ -11,10 +11,10 @@ export function ShopGrid() {
       <section className="card-shell p-6 sm:p-8">
         <p className="eyebrow">No Matches</p>
         <h2 className="display-font mt-2 text-5xl leading-none tracking-[0.07em]">
-          No Beats Found
+          No Pieces Found
         </h2>
         <p className="mt-3 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-          Try another filter or sort to browse more of the catalog.
+          Try another filter or sort to browse more from the catalog.
         </p>
       </section>
     );

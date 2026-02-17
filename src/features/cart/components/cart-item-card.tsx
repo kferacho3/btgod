@@ -30,7 +30,7 @@ export function CartItemCard({ item }: CartItemCardProps) {
           {item.product.name}
         </h2>
         <p className="text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-          License Tier {item.license} • {item.product.bpm} BPM
+          Size {item.size} • {item.product.colorway}
         </p>
 
         <div className="flex flex-wrap items-center gap-2">
@@ -40,7 +40,7 @@ export function CartItemCard({ item }: CartItemCardProps) {
             onClick={() =>
               setCartItemQuantity({
                 productSlug: item.productSlug,
-                license: item.license,
+                size: item.size,
                 quantity: item.quantity - 1,
               })
             }
@@ -56,7 +56,7 @@ export function CartItemCard({ item }: CartItemCardProps) {
             onClick={() =>
               setCartItemQuantity({
                 productSlug: item.productSlug,
-                license: item.license,
+                size: item.size,
                 quantity: item.quantity + 1,
               })
             }
@@ -73,7 +73,7 @@ export function CartItemCard({ item }: CartItemCardProps) {
             type="button"
             className="btn-outline w-full sm:w-auto"
             onClick={() =>
-              removeCartItem({ productSlug: item.productSlug, license: item.license })
+              removeCartItem({ productSlug: item.productSlug, size: item.size })
             }
           >
             Remove

@@ -6,31 +6,31 @@ import { CartOrderSummary } from "@/features/cart/components/cart-order-summary"
 import { useCartSummary } from "@/hooks/use-cart-summary";
 
 export function CartExperience() {
-  const { items, subtotal, delivery, tax, total, isEmpty } = useCartSummary();
+  const { items, subtotal, shipping, tax, total, isEmpty } = useCartSummary();
 
   return (
     <section className="card-shell space-y-7 p-6 sm:p-8">
       <div className="space-y-3">
         <p className="eyebrow">Cart Management</p>
         <h1 className="display-font text-[clamp(2.25rem,8vw,4.5rem)] leading-none tracking-[0.06em]">
-          License Cart
+          Elite Cart
         </h1>
         <p className="text-sm uppercase tracking-[0.16em] text-[var(--text-secondary)]">
-          Manage your selected beats, license tiers, and checkout-ready totals from one command center.
+          Review selected pieces, adjust sizes, and finalize your luxury checkout.
         </p>
       </div>
 
       {isEmpty ? (
         <article className="border border-[var(--line)] p-6">
-          <p className="eyebrow">No Licenses Added</p>
+          <p className="eyebrow">No Pieces Added</p>
           <h2 className="display-font mt-2 text-5xl leading-none tracking-[0.07em]">
             Your Cart Is Empty
           </h2>
           <p className="mt-3 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-            Add beats from the catalog to start your licensing bundle.
+            Add pieces from the shop to start your order.
           </p>
           <Link href="/shop" className="btn-solid mt-5">
-            Browse Beat Vault
+            Browse Catalog
           </Link>
         </article>
       ) : (
@@ -42,7 +42,7 @@ export function CartExperience() {
           </div>
           <CartOrderSummary
             subtotal={subtotal}
-            delivery={delivery}
+            shipping={shipping}
             tax={tax}
             total={total}
           />

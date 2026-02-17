@@ -6,14 +6,14 @@ import { useCartActions } from "@/store/selectors";
 
 type CartOrderSummaryProps = {
   subtotal: number;
-  delivery: number;
+  shipping: number;
   tax: number;
   total: number;
 };
 
 export function CartOrderSummary({
   subtotal,
-  delivery,
+  shipping,
   tax,
   total,
 }: CartOrderSummaryProps) {
@@ -26,12 +26,12 @@ export function CartOrderSummary({
       </h2>
       <div className="space-y-3 border-y border-[var(--line)] py-4 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
         <div className="flex items-center justify-between gap-2">
-          <p>Catalog Subtotal</p>
+          <p>Subtotal</p>
           <p>{formatCurrency(subtotal)}</p>
         </div>
         <div className="flex items-center justify-between gap-2">
-          <p>Delivery</p>
-          <p>{formatCurrency(delivery)}</p>
+          <p>Shipping</p>
+          <p>{formatCurrency(shipping)}</p>
         </div>
         <div className="flex items-center justify-between gap-2">
           <p>Estimated Tax</p>
@@ -54,7 +54,7 @@ export function CartOrderSummary({
           Clear Cart
         </button>
         <Link href="/shop" className="btn-outline">
-          Keep Browsing Beats
+          Keep Shopping
         </Link>
       </div>
     </aside>
