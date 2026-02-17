@@ -1,9 +1,10 @@
 import Image from "next/image";
 
 const bannerItems = [
-  "Drop 01 Live Now",
-  "Limited Capsule Runs",
-  "Free US Shipping Over $180",
+  "Wave 01 Live",
+  "312 Curated Beats",
+  "New Producer Drops Weekly",
+  "Exclusive Licensing Available",
   "Built For Greatness",
 ];
 

@@ -8,9 +8,9 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { useCartItemCount } from "@/store/selectors";
 
 const mainLinks = [
-  { href: "/shop", label: "Shop" },
-  { href: "/collections", label: "Collections" },
-  { href: "/lookbook", label: "Lookbook" },
+  { href: "/shop", label: "Beat Vault" },
+  { href: "/collections", label: "Drops" },
+  { href: "/lookbook", label: "Visual Lab" },
 ];
 
 const utilityLinks = [
@@ -18,16 +18,18 @@ const utilityLinks = [
   { href: "/account/sign-in", label: "Signup" },
 ];
 
+const tickerItems = [
+  "Be The Greatest Or Die",
+  "Chart-Ready Catalog",
+  "Crown-Grade Sound",
+  "Never Regress",
+];
+
+const tickerLoop = [...tickerItems, ...tickerItems];
+
 export function SiteHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const cartCount = useCartItemCount();
-  const tickerItems = [
-    "Be The Greatest Or Die",
-    "Dress Like A God",
-    "Live Like A Legend",
-    "Never Regress",
-  ];
-  const tickerLoop = [...tickerItems, ...tickerItems];
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--line)] glass-shell">
@@ -61,6 +63,7 @@ export function SiteHeader() {
             >
               {isMobileMenuOpen ? "Close" : "Menu"}
             </button>
+
             <div className="hidden gap-2 lg:flex">
               {utilityLinks.map((link) => (
                 <Link
@@ -72,6 +75,7 @@ export function SiteHeader() {
                 </Link>
               ))}
             </div>
+
             <Link
               href="/cart"
               className="btn-outline h-9 min-w-[5.6rem] px-3 py-0 sm:min-w-[6.4rem]"
@@ -98,7 +102,9 @@ export function SiteHeader() {
                   {link.label}
                 </Link>
               ))}
+
               <div className="gold-divider my-1" />
+
               {utilityLinks.map((link) => (
                 <Link
                   key={`${link.href}-${link.label}-mobile`}
@@ -115,7 +121,7 @@ export function SiteHeader() {
 
         <div className="overflow-hidden border border-[var(--line)] bg-[var(--bg-elevated)] px-3 py-2">
           <div className="ticker-marquee">
-            <div className="ticker-track whitespace-nowrap text-base tracking-[0.3em] sm:text-xl sm:tracking-[0.42em]">
+            <div className="ticker-track whitespace-nowrap text-base tracking-[0.3em] sm:text-xl sm:tracking-[0.4em]">
               {tickerLoop.map((item, index) => (
                 <span
                   key={`${item}-${index}`}
