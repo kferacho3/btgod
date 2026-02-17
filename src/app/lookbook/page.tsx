@@ -4,20 +4,48 @@ import { SectionHeading } from "@/components/section-heading";
 import { LookbookPromptPanel } from "@/features/lookbook/components/lookbook-prompt-panel";
 import { lookbookFrames } from "@/lib/catalog";
 
+const visualDirections = [
+  {
+    title: "Noir Performance",
+    detail: "Stage smoke, hard key light, black-and-gold wardrobe hierarchy.",
+  },
+  {
+    title: "Street Oracle",
+    detail: "Urban movement, chrome textures, handheld documentary framing.",
+  },
+  {
+    title: "Crown Minimal",
+    detail: "Negative space, disciplined typography, luxury-neutral palette.",
+  },
+];
+
 export default function LookbookPage() {
   return (
     <>
       <section className="card-shell space-y-8 p-6 sm:p-8">
         <SectionHeading
           eyebrow="Lookbook Lab"
-          title="Generate The Streets."
-          description="Prompt-inspired visual references for campaign development and styling direction."
+          title="Build The Visual World"
+          description="Craft campaign prompts, visualizer references, and rollout aesthetics aligned with BTGOD sonic identity."
           action={
             <Link href="/shop" className="btn-outline">
-              Open Shop
+              Open Beat Vault
             </Link>
           }
         />
+
+        <div className="grid gap-3 sm:grid-cols-3">
+          {visualDirections.map((direction) => (
+            <article key={direction.title} className="surface-soft border border-[var(--line)] p-4">
+              <p className="display-font text-2xl leading-none tracking-[0.08em] sm:text-3xl">
+                {direction.title}
+              </p>
+              <p className="mt-2 text-[0.62rem] uppercase tracking-[0.15em] text-[var(--text-secondary)]">
+                {direction.detail}
+              </p>
+            </article>
+          ))}
+        </div>
 
         <LookbookPromptPanel />
 

@@ -1,19 +1,19 @@
 import Image from "next/image";
 
 const stripItems = [
-  "God-Level Essentials",
-  "Precision Tailoring",
-  "Crown Standard Materials",
-  "Limited Weekly Capsules",
+  "Major-Ready Production",
+  "Artist-First Licensing",
+  "Global Producer Roster",
+  "New Drops Every Week",
   "Built For Greatness",
 ];
 
 const stripLoop = [...stripItems, ...stripItems];
 
 const metrics = [
-  { label: "Active Drop", value: "01" },
-  { label: "Limited Units", value: "450" },
-  { label: "Style Discipline", value: "100%" },
+  { label: "Wave", value: "01" },
+  { label: "Featured Producers", value: "28" },
+  { label: "Daily Beat Plays", value: "1.4M" },
 ];
 
 export function HomeBannerStripSection() {

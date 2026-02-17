@@ -1,25 +1,27 @@
 import Link from "next/link";
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
-import { products } from "@/lib/catalog";
+import { featuredProductSlugs, productsBySlug } from "@/lib/catalog";
 
 export function HomeFeaturedProductsSection() {
-  const featuredProducts = products.slice(0, 3);
+  const featuredProducts = featuredProductSlugs
+    .map((slug) => productsBySlug.get(slug))
+    .filter((product): product is NonNullable<typeof product> => Boolean(product));
 
   return (
     <section className="space-y-8 border-t border-[var(--line)] pt-8 reveal-up">
       <SectionHeading
-        eyebrow="Shop • God-Level Essentials"
-        title="Curated Wear For Gods Only."
-        description="Sharp tailoring, clean outerwear, and heavyweight essentials for the daily mission."
+        eyebrow="Top Catalog"
+        title="Current Heat Rotation"
+        description="The most requested BTGOD beats this cycle, selected for artist conversion and chart momentum."
         action={
           <Link href="/shop" className="btn-outline">
-            Browse Full Shop
+            Browse Full Catalog
           </Link>
         }
       />
       <div className="gold-divider" />
-      <div className="grid gap-5 lg:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {featuredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
