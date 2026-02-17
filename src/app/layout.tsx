@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CookieConsentBar } from "@/components/cookie-consent-bar";
 import { ScrollAmbience } from "@/components/scroll-ambience";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -50,6 +51,7 @@ export default function RootLayout({
             <main className="flex min-w-0 flex-col gap-12 sm:gap-16">{children}</main>
           </div>
         </div>
+        <CookieConsentBar />
         <SiteFooter />
       </body>
     </html>

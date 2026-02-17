@@ -10,7 +10,7 @@ export function ShopControls() {
 
   return (
     <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
-      <div className="flex flex-wrap gap-2">
+      <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {shopFilters.map((filter) => (
           <button
             key={filter.value}

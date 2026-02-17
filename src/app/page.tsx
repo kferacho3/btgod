@@ -3,6 +3,7 @@ import { HomeCollectionsSection } from "@/features/home/components/home-collecti
 import { HomeFeaturedProductsSection } from "@/features/home/components/home-featured-products-section";
 import { HomeHeroSection } from "@/features/home/components/home-hero-section";
 import { HomeLookbookSection } from "@/features/home/components/home-lookbook-section";
+import { HomeSignatureSection } from "@/features/home/components/home-signature-section";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <HomeHeroSection />
       <HomeBannerStripSection />
       <HomeFeaturedProductsSection />
+      <HomeSignatureSection />
       <HomeCollectionsSection />
       <HomeLookbookSection />
     </>
