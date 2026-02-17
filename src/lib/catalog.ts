@@ -1,36 +1,31 @@
-export type BeatCategory =
-  | "trap"
-  | "drill"
-  | "rnb"
-  | "afro"
-  | "cinematic"
-  | "club";
+export type ProductCategory =
+  | "outerwear"
+  | "tailoring"
+  | "hoodies"
+  | "bottoms"
+  | "accessories"
+  | "footwear";
 
-export type LicenseTierCode = "S" | "M" | "L" | "XL";
+export type ProductSize = "S" | "M" | "L" | "XL";
 
 export type Product = {
   id: string;
   slug: string;
   name: string;
   subtitle: string;
-  category: BeatCategory;
+  category: ProductCategory;
   collection: string;
   badge: string;
   price: number;
   image: string;
-  producer: string;
-  bpm: number;
-  musicalKey: string;
-  duration: string;
-  stems: number;
-  sonicNotes: string;
-  arrangement: string;
-  licensingHint: string;
-  usageTags: string[];
-  energy: string;
-  mood: string;
-  format: string;
+  materials: string;
+  fit: string;
+  aura: string;
+  silhouette: string;
+  colorway: string;
+  weight: string;
   releaseDate: string;
+  usageTags: string[];
 };
 
 export type Collection = {
@@ -40,7 +35,7 @@ export type Collection = {
   description: string;
   mood: string;
   image: string;
-  trackCount: number;
+  pieceCount: number;
   releaseWindow: string;
 };
 
@@ -54,7 +49,7 @@ export type LookbookFrame = {
 export type CartPreviewItem = {
   productSlug: string;
   quantity: number;
-  license: LicenseTierCode;
+  size: ProductSize;
 };
 
 export type LabelStat = {
@@ -63,21 +58,21 @@ export type LabelStat = {
   description: string;
 };
 
-export type ProducerSpotlight = {
+export type AtelierSpotlight = {
   id: string;
   name: string;
-  city: string;
-  style: string;
-  placements: string;
+  base: string;
+  discipline: string;
+  signature: string;
   image: string;
 };
 
-export type ChartHighlight = {
+export type TrendHighlight = {
   id: string;
-  beatSlug: string;
+  productSlug: string;
   rank: string;
-  streams: string;
-  saves: string;
+  sellThrough: string;
+  wishlist: string;
   growth: string;
 };
 
@@ -89,204 +84,164 @@ export type ReleaseMilestone = {
 
 export const products: Product[] = [
   {
-    id: "B-001",
-    slug: "obsidian-command",
-    name: "Obsidian Command",
-    subtitle: "Dark trap anthem with polished low-end and elite vocal space",
-    category: "trap",
+    id: "P-001",
+    slug: "obsidian-command-puffer",
+    name: "Obsidian Command Puffer",
+    subtitle: "Structured winter armor cut for midnight city runs",
+    category: "outerwear",
     collection: "Noir Genesis",
-    badge: "Top Chart",
-    price: 320,
+    badge: "Top Pick",
+    price: 620,
     image:
-      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=80",
-    producer: "Krown Atlas",
-    bpm: 148,
-    musicalKey: "F# Minor",
-    duration: "03:14",
-    stems: 14,
-    sonicNotes: "Thunderous 808 stack, glassy bells, wide choir haze",
-    arrangement: "Hook intro, 2 verse pockets, bridge switch-up, hard outro",
-    licensingHint: "Best for artist singles, rollout teasers, and trailer cuts",
-    usageTags: ["Artist Single", "Performance Intro", "Viral Snippet"],
-    energy: "10/10",
-    mood: "Cold authority",
-    format: "WAV + Stems",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80",
+    materials: "Italian matte nylon shell, goose-down core",
+    fit: "Boxy luxury fit with dropped shoulder",
+    aura: "Command presence with minimal flash",
+    silhouette: "High collar, cropped body, hard shoulder line",
+    colorway: "Onyx Black / Metallic Gold hardware",
+    weight: "Heavy winter",
     releaseDate: "Jan 2026",
+    usageTags: ["Statement Outerwear", "Luxury Street", "Cold Weather"],
   },
   {
-    id: "B-002",
-    slug: "steel-veil",
-    name: "Steel Veil",
-    subtitle: "Melodic drill atmosphere with cinematic brass transitions",
-    category: "drill",
+    id: "P-002",
+    slug: "steel-veil-overcoat",
+    name: "Steel Veil Overcoat",
+    subtitle: "Longline wool architecture with elite tailoring discipline",
+    category: "tailoring",
     collection: "Noir Genesis",
-    badge: "Label Pick",
-    price: 290,
+    badge: "Runway Favorite",
+    price: 780,
     image:
-      "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
-    producer: "Vanta Loop",
-    bpm: 142,
-    musicalKey: "C Minor",
-    duration: "02:58",
-    stems: 12,
-    sonicNotes: "Sliding glides, reverse strings, textured snare lattices",
-    arrangement: "Dynamic intro, two pressure drops, adlib pause moments",
-    licensingHint: "Strong for drill verses, cypher content, and sync reels",
-    usageTags: ["Drill Cut", "Cypher", "Sync Ready"],
-    energy: "9/10",
-    mood: "Focused tension",
-    format: "WAV + Tracked Stems",
+      "https://images.unsplash.com/photo-1594938328870-9623159c8c99?auto=format&fit=crop&w=1200&q=80",
+    materials: "Double-faced wool blend with silk lining",
+    fit: "Tailored drape with reinforced shoulder",
+    aura: "Executive menace in monochrome",
+    silhouette: "Longline coat, clean waist suppression",
+    colorway: "Graphite Black / Silver accents",
+    weight: "Mid-heavy",
     releaseDate: "Jan 2026",
+    usageTags: ["Tailoring", "Evening", "Editorial"],
   },
   {
-    id: "B-003",
-    slug: "halo-track",
-    name: "Halo Track",
-    subtitle: "R&B trap crossover with glossy topline headroom",
-    category: "rnb",
+    id: "P-003",
+    slug: "halo-track-hoodie",
+    name: "Halo Track Hoodie",
+    subtitle: "Premium heavyweight hoodie for all-day luxury comfort",
+    category: "hoodies",
     collection: "Silver Discipline",
-    badge: "New",
+    badge: "Fast Moving",
     price: 240,
     image:
-      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80",
-    producer: "Midas Noir",
-    bpm: 126,
-    musicalKey: "A Minor",
-    duration: "03:06",
-    stems: 11,
-    sonicNotes: "Airy keys, pocketed claps, tape-sat drum bus",
-    arrangement: "Hook-first sequence, minimal verse lanes, lush breakdown",
-    licensingHint: "Great for melodic artists, dance edits, and mood reels",
-    usageTags: ["R&B", "Late Night", "Dance Edit"],
-    energy: "7/10",
-    mood: "Velvet pressure",
-    format: "WAV + Radio Edit",
+      "https://images.unsplash.com/photo-1556821840-3a9fbc86339e?auto=format&fit=crop&w=1200&q=80",
+    materials: "520gsm brushed cotton with silver tipped drawcord",
+    fit: "Relaxed oversized with sculpted hood",
+    aura: "Clean power with daily wearability",
+    silhouette: "Volume hood, tapered rib hem",
+    colorway: "Midnight Black / Soft Silver",
+    weight: "Heavyweight",
     releaseDate: "Feb 2026",
+    usageTags: ["Core Essential", "Daily Uniform", "Layering"],
   },
   {
-    id: "B-004",
-    slug: "cathedral-knit",
-    name: "Cathedral Knit",
-    subtitle: "Afro-fusion groove with pop crossover replay value",
-    category: "afro",
+    id: "P-004",
+    slug: "divine-cargo-pant",
+    name: "Divine Cargo Pant",
+    subtitle: "Technical cargo with refined drape and tactical utility",
+    category: "bottoms",
     collection: "Silver Discipline",
     badge: "Restock",
-    price: 210,
+    price: 290,
     image:
-      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=80",
-    producer: "Sage Tempo",
-    bpm: 108,
-    musicalKey: "D Major",
-    duration: "03:21",
-    stems: 10,
-    sonicNotes: "Live percussion stack, warm bassline, bright guitar motifs",
-    arrangement: "Open chorus form, collab bridge pocket, final energy lift",
-    licensingHint: "High conversion for global pop and seasonal campaigns",
-    usageTags: ["Afro", "Global Pop", "Campaign"],
-    energy: "8/10",
-    mood: "Warm command",
-    format: "WAV + Instrumental",
+      "https://images.unsplash.com/photo-1624378440070-d5d5ac3528b5?auto=format&fit=crop&w=1200&q=80",
+    materials: "Water-resistant twill with stretch panel inserts",
+    fit: "Relaxed thigh with controlled ankle taper",
+    aura: "Athletic edge with luxury finish",
+    silhouette: "Utility pocket grid, articulated knee",
+    colorway: "Urban Camo / Matte black trims",
+    weight: "Mid-weight",
     releaseDate: "Feb 2026",
+    usageTags: ["Cargo", "Street Luxury", "Travel"],
   },
   {
-    id: "B-005",
-    slug: "archangel-score",
-    name: "Archangel Score",
-    subtitle: "Cinematic hybrid production built for major visual statements",
-    category: "cinematic",
+    id: "P-005",
+    slug: "crown-signet-chain",
+    name: "Crown Signet Chain",
+    subtitle: "Polished statement chain engineered for stage and street",
+    category: "accessories",
     collection: "Gold Testament",
     badge: "Exclusive",
-    price: 520,
+    price: 540,
     image:
-      "https://images.unsplash.com/photo-1513883049090-d0b7439799bf?auto=format&fit=crop&w=1200&q=80",
-    producer: "Echelon Saint",
-    bpm: 132,
-    musicalKey: "E Minor",
-    duration: "03:42",
-    stems: 19,
-    sonicNotes: "Epic braams, pulse synths, thunder percussion, choir swells",
-    arrangement: "Trailer architecture with impact markers and tension risers",
-    licensingHint: "Booked for trailers, esports intros, and ad campaigns",
-    usageTags: ["Cinematic", "Trailer", "High Impact"],
-    energy: "10/10",
-    mood: "Royal danger",
-    format: "WAV + Full Scoring Stems",
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80",
+    materials: "18k gold-plated brass with anti-tarnish coating",
+    fit: "Adjustable drape with dual clasp options",
+    aura: "Royal centerpiece without noise",
+    silhouette: "Signet crest pendant + rope link chain",
+    colorway: "BTG Gold",
+    weight: "Premium metal",
     releaseDate: "Mar 2026",
+    usageTags: ["Jewelry", "Stage", "Luxury"],
   },
   {
-    id: "B-006",
-    slug: "sanctum-pulse",
-    name: "Sanctum Pulse",
-    subtitle: "High-energy club weapon with polished topline lanes",
-    category: "club",
+    id: "P-006",
+    slug: "saint-runner-sneaker",
+    name: "Saint Runner Sneaker",
+    subtitle: "Performance-luxury sneaker with tonal sculpted profile",
+    category: "footwear",
     collection: "Gold Testament",
-    badge: "Fast Moving",
-    price: 185,
+    badge: "New",
+    price: 420,
     image:
-      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=1200&q=80",
-    producer: "Nova Chamber",
-    bpm: 128,
-    musicalKey: "G Minor",
-    duration: "02:47",
-    stems: 9,
-    sonicNotes: "Punchy kick, sidechained walls, bright melodic risers",
-    arrangement: "DJ intro/outro, hook variants, drop-ready lanes",
-    licensingHint: "Ideal for club singles, dance reels, and branded edits",
-    usageTags: ["Club", "Dance", "Festival"],
-    energy: "9/10",
-    mood: "Neon confidence",
-    format: "WAV + Performance Edit",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80",
+    materials: "Calf leather upper, carbon foam sole unit",
+    fit: "True to size with performance lockdown",
+    aura: "Speed silhouette with couture finish",
+    silhouette: "Low-top racer, split-density sole",
+    colorway: "Noir / Gold heel clip",
+    weight: "Lightweight",
     releaseDate: "Mar 2026",
+    usageTags: ["Sneaker", "Performance", "Luxury Sport"],
   },
   {
-    id: "B-007",
-    slug: "crown-code",
-    name: "Crown Code",
-    subtitle: "Atmospheric drill-trap hybrid with chant-friendly hook space",
-    category: "drill",
-    collection: "Noir Genesis",
-    badge: "A&R Favorite",
-    price: 305,
+    id: "P-007",
+    slug: "resurrection-varsity",
+    name: "Resurrection Varsity",
+    subtitle: "Wool-leather varsity with elevated tonal embroidery",
+    category: "outerwear",
+    collection: "Apex Psalms",
+    badge: "Editors Choice",
+    price: 860,
     image:
-      "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=1200&q=80",
-    producer: "Krown Atlas",
-    bpm: 145,
-    musicalKey: "G# Minor",
-    duration: "03:08",
-    stems: 13,
-    sonicNotes: "Stacked choirs, distorted plucks, drum breaks with air",
-    arrangement: "Callout intro, chant hook, verse lift, sparse bridge",
-    licensingHint: "Works best for headline tracks and walkout edits",
-    usageTags: ["Stadium", "Trap", "Walkout"],
-    energy: "9/10",
-    mood: "Triumphant threat",
-    format: "WAV + Master + Stems",
-    releaseDate: "Feb 2026",
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=1200&q=80",
+    materials: "Melton wool body with lambskin sleeves",
+    fit: "Structured varsity block with tailored sleeve pitch",
+    aura: "Iconic athlete royalty",
+    silhouette: "Cropped varsity body, ribbed waistband",
+    colorway: "Jet Black / Gold script",
+    weight: "Heavyweight",
+    releaseDate: "Apr 2026",
+    usageTags: ["Varsity", "Collector Piece", "Luxury Sport"],
   },
   {
-    id: "B-008",
-    slug: "silver-discipline",
-    name: "Silver Discipline",
-    subtitle: "Melodic club-R&B crossover with polished bounce",
-    category: "rnb",
-    collection: "Silver Discipline",
+    id: "P-008",
+    slug: "legend-knit-zip",
+    name: "Legend Knit Zip",
+    subtitle: "Fine-gauge zip knit tuned for clean layering and travel",
+    category: "tailoring",
+    collection: "Apex Psalms",
     badge: "Trend Alert",
-    price: 255,
+    price: 360,
     image:
-      "https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?auto=format&fit=crop&w=1200&q=80",
-    producer: "Midas Noir",
-    bpm: 122,
-    musicalKey: "B Minor",
-    duration: "03:18",
-    stems: 12,
-    sonicNotes: "Wide synth pads, velvet clap stack, dynamic sub movement",
-    arrangement: "8 bar lead-in, melodic hook, clean verse lanes, outro tag",
-    licensingHint: "Perfect for crossover records and sync-friendly cuts",
-    usageTags: ["Crossover", "R&B", "Sync"],
-    energy: "8/10",
-    mood: "Luxury glide",
-    format: "WAV + TV Mix",
-    releaseDate: "Mar 2026",
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
+    materials: "Merino-cashmere blend with two-way zipper",
+    fit: "Refined slim-straight silhouette",
+    aura: "Understated wealth signal",
+    silhouette: "Clean zip front, minimal rib detailing",
+    colorway: "Bone / Silver zip hardware",
+    weight: "Mid-weight",
+    releaseDate: "Apr 2026",
+    usageTags: ["Knitwear", "Travel", "Quiet Luxury"],
   },
 ];
 
@@ -296,11 +251,11 @@ export const collections: Collection[] = [
     title: "Noir Genesis",
     drop: "Drop 01",
     description:
-      "Dark polished trap and drill records engineered for breakout singles.",
+      "Black-forward foundation pieces engineered for executive street power.",
     mood: "Aggressive luxury",
     image:
-      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1400&q=80",
-    trackCount: 24,
+      "https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1400&q=80",
+    pieceCount: 24,
     releaseWindow: "Q1 2026",
   },
   {
@@ -308,11 +263,11 @@ export const collections: Collection[] = [
     title: "Silver Discipline",
     drop: "Drop 02",
     description:
-      "Melodic crossover production built for replay and global playlist lift.",
-    mood: "Polished emotion",
+      "Soft silver accents, performance cuts, and elevated daily uniforms.",
+    mood: "Polished motion",
     image:
-      "https://images.unsplash.com/photo-1461784121038-f088ca1e7714?auto=format&fit=crop&w=1400&q=80",
-    trackCount: 18,
+      "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=1400&q=80",
+    pieceCount: 18,
     releaseWindow: "Q2 2026",
   },
   {
@@ -320,11 +275,11 @@ export const collections: Collection[] = [
     title: "Gold Testament",
     drop: "Drop 03",
     description:
-      "Premium cinematic and club records designed for major placements.",
+      "Premium statement capsules for stage, spotlight, and high-visibility moments.",
     mood: "Royal impact",
     image:
-      "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1400&q=80",
-    trackCount: 16,
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1400&q=80",
+    pieceCount: 16,
     releaseWindow: "Q3 2026",
   },
   {
@@ -332,11 +287,11 @@ export const collections: Collection[] = [
     title: "Apex Psalms",
     drop: "Drop 04",
     description:
-      "Hybrid faith-meets-street sonics for cinematic, anthem-grade moments.",
-    mood: "Sacred intensity",
+      "Collector-level tailoring and outerwear with heirloom-grade finishing.",
+    mood: "Sacred elite",
     image:
-      "https://images.unsplash.com/photo-1487180144351-b8472da7d491?auto=format&fit=crop&w=1400&q=80",
-    trackCount: 12,
+      "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=1400&q=80",
+    pieceCount: 12,
     releaseWindow: "Q4 2026",
   },
 ];
@@ -344,202 +299,202 @@ export const collections: Collection[] = [
 export const lookbookFrames: LookbookFrame[] = [
   {
     id: "L-001",
-    title: "Stage Sovereign",
+    title: "Crown Noir",
     image:
-      "https://images.unsplash.com/photo-1516280030429-27679b3dc9cf?auto=format&fit=crop&w=1200&q=80",
-    prompt: "Arena backlight, crown silhouette, monochrome editorial pacing.",
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
+    prompt: "Night studio portrait with black tailoring and gold accents.",
   },
   {
     id: "L-002",
-    title: "Control Room",
+    title: "Runway Concrete",
     image:
-      "https://images.unsplash.com/photo-1461784180009-21121b2f204c?auto=format&fit=crop&w=1200&q=80",
-    prompt: "Console LEDs, noir reflections, producer documentary texture.",
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80",
+    prompt: "Urban runway cast, hard light, disciplined silhouettes.",
   },
   {
     id: "L-003",
-    title: "Street Oracle",
+    title: "Chrome Silence",
     image:
-      "https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=1200&q=80",
-    prompt: "Night city gradients, metallic highlights, campaign framing.",
+      "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&w=1200&q=80",
+    prompt: "Silver hardware details, neutral tones, close-up composition.",
   },
   {
     id: "L-004",
-    title: "After Hours",
+    title: "Arena Entrance",
     image:
-      "https://images.unsplash.com/photo-1525362081669-2b476bb628c3?auto=format&fit=crop&w=1200&q=80",
-    prompt: "Late writing session, lamp pools, analog grit and glass textures.",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1200&q=80",
+    prompt: "Athlete-meets-artist energy with a cinematic entry frame.",
   },
   {
     id: "L-005",
-    title: "Gold Pulse",
+    title: "Afterhours Atelier",
     image:
-      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&q=80",
-    prompt: "Warm metallic diffusion, kinetic crowd motion, crown accents.",
+      "https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1200&q=80",
+    prompt: "Workroom textures, fabric drape, low-lux ambient light.",
   },
   {
     id: "L-006",
-    title: "Archive Vault",
+    title: "Gold Ritual",
     image:
-      "https://images.unsplash.com/photo-1518991791750-74945f239f5f?auto=format&fit=crop&w=1200&q=80",
-    prompt: "Vinyl archive language, high contrast shelving, tactile nostalgia.",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80",
+    prompt: "Metallic highlights, heirloom accessories, icon framing.",
   },
 ];
 
 export const cartPreview: CartPreviewItem[] = [
-  { productSlug: "obsidian-command", quantity: 1, license: "M" },
-  { productSlug: "halo-track", quantity: 1, license: "S" },
+  { productSlug: "obsidian-command-puffer", quantity: 1, size: "L" },
+  { productSlug: "halo-track-hoodie", quantity: 1, size: "M" },
 ];
 
 export const brandPillars = [
   {
-    title: "A&R First",
+    title: "Luxury Craft",
     description:
-      "Every beat is reviewed for artist adaptability, replay value, and placement potential.",
+      "Premium fabrics, precision construction, and finishing standards built for collectors.",
   },
   {
-    title: "Mix-Ready Masters",
+    title: "Performance Fit",
     description:
-      "Premium loudness balance, clean transients, and stem architecture for quick delivery.",
+      "Designed for motion on stage, in transit, and in daily high-output life.",
   },
   {
-    title: "Global Catalog",
+    title: "Culture Precision",
     description:
-      "Trap, drill, R&B, afro, and cinematic records tuned for worldwide release workflows.",
+      "Built for rappers, creators, and leaders who set trends instead of following them.",
   },
 ];
 
 export const labelStats: LabelStat[] = [
   {
-    label: "Catalog Size",
-    value: "312",
-    description: "Release-ready beats with full metadata and stems.",
+    label: "Global Clients",
+    value: "94K",
+    description: "Customers wearing BTGOD across 48 countries.",
   },
   {
-    label: "Monthly Streams",
-    value: "42.8M",
-    description: "Partner platform traffic across producer rosters.",
+    label: "Sell Through",
+    value: "87%",
+    description: "Average sell-through of capsule drops within launch week.",
   },
   {
-    label: "Placements",
-    value: "1,260+",
-    description: "Singles, sync campaigns, and label collaborations.",
+    label: "Limited Runs",
+    value: "52",
+    description: "Curated micro-drops released in the last 12 months.",
   },
   {
-    label: "Avg. Delivery",
-    value: "<12h",
-    description: "Typical turnaround for stems and alternate mixes.",
+    label: "Avg Ship",
+    value: "<48h",
+    description: "Fast premium fulfillment for domestic orders.",
   },
 ];
 
-export const producerSpotlights: ProducerSpotlight[] = [
+export const atelierSpotlights: AtelierSpotlight[] = [
   {
-    id: "PR-01",
-    name: "Krown Atlas",
-    city: "Atlanta",
-    style: "Dark trap, hybrid orchestral bounce",
-    placements: "Future camp, G Herbo sessions, Netflix sync cuts",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    id: "PR-02",
-    name: "Midas Noir",
-    city: "Toronto",
-    style: "R&B trap and atmospheric melodic production",
-    placements: "Kehlani sessions, EA Sports trailer bundle",
+    id: "A-01",
+    name: "Vera Stone",
+    base: "Milan",
+    discipline: "Outerwear engineering + luxury hardware",
+    signature: "Architectural collars and precise shoulder lines",
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
   },
   {
-    id: "PR-03",
-    name: "Nova Chamber",
-    city: "Los Angeles",
-    style: "Club-forward crossover and pop rhythm engineering",
-    placements: "Festival DJ packages, sports campaign edits",
+    id: "A-02",
+    name: "Jalen Croix",
+    base: "Los Angeles",
+    discipline: "Street-tailoring hybrid silhouettes",
+    signature: "Low profile cuts with sharp drape control",
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: "A-03",
+    name: "Amara Nox",
+    base: "Paris",
+    discipline: "Luxury sportswear and runway knit systems",
+    signature: "Minimal branding with high-impact texture",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
-export const chartHighlights: ChartHighlight[] = [
+export const trendHighlights: TrendHighlight[] = [
   {
-    id: "CH-01",
-    beatSlug: "obsidian-command",
-    rank: "#1 Trap",
-    streams: "3.4M",
-    saves: "182K",
-    growth: "+27%",
-  },
-  {
-    id: "CH-02",
-    beatSlug: "steel-veil",
-    rank: "#3 Drill",
-    streams: "2.1M",
-    saves: "119K",
-    growth: "+19%",
-  },
-  {
-    id: "CH-03",
-    beatSlug: "halo-track",
-    rank: "#2 R&B",
-    streams: "2.8M",
-    saves: "143K",
-    growth: "+24%",
-  },
-  {
-    id: "CH-04",
-    beatSlug: "archangel-score",
-    rank: "#1 Cinematic",
-    streams: "1.7M",
-    saves: "92K",
+    id: "T-01",
+    productSlug: "obsidian-command-puffer",
+    rank: "#1 Outerwear",
+    sellThrough: "92%",
+    wishlist: "18.2K",
     growth: "+31%",
   },
+  {
+    id: "T-02",
+    productSlug: "steel-veil-overcoat",
+    rank: "#2 Tailoring",
+    sellThrough: "86%",
+    wishlist: "14.7K",
+    growth: "+22%",
+  },
+  {
+    id: "T-03",
+    productSlug: "saint-runner-sneaker",
+    rank: "#1 Footwear",
+    sellThrough: "89%",
+    wishlist: "21.3K",
+    growth: "+29%",
+  },
+  {
+    id: "T-04",
+    productSlug: "crown-signet-chain",
+    rank: "#1 Accessories",
+    sellThrough: "95%",
+    wishlist: "16.4K",
+    growth: "+35%",
+  },
 ];
 
-export const licensingTiers = [
+export const sizeTiers = [
   {
     code: "S" as const,
-    name: "Starter",
-    description: "MP3 + WAV license for independent releases and content use.",
+    name: "Slim",
+    description: "Precision close fit for a sharp silhouette.",
   },
   {
     code: "M" as const,
-    name: "Market",
-    description: "Stems, radio edit, and expanded monetization rights.",
+    name: "Modern",
+    description: "Balanced room with a tailored profile.",
   },
   {
     code: "L" as const,
-    name: "Label",
-    description: "Full stem suite, alternates, and campaign-safe paperwork.",
+    name: "Relaxed",
+    description: "Street-lux drape with mobility and layering room.",
   },
   {
     code: "XL" as const,
-    name: "Exclusive",
-    description: "Off-market ownership transfer and white-glove delivery.",
+    name: "Oversized",
+    description: "Bold statement proportion for stage-ready presence.",
   },
 ];
 
 export const releaseTimeline: ReleaseMilestone[] = [
   {
     month: "March 2026",
-    title: "Noir Genesis: Volume II",
-    detail: "18 trap and drill records with cinematic bridges and vocal pockets.",
+    title: "Noir Genesis: Shadow Set",
+    detail: "Limited monochrome outerwear with polished black hardware.",
   },
   {
     month: "April 2026",
-    title: "Silver Discipline: Artist Toolkit",
-    detail: "R&B and afro crossover set designed for playlist acceleration.",
+    title: "Silver Discipline: Core Uniform",
+    detail: "Daily luxury set engineered for movement and repeat wear.",
   },
   {
     month: "May 2026",
-    title: "Gold Testament: Sync Edition",
-    detail: "Trailer-grade catalog formatted for ads, games, and teasers.",
+    title: "Gold Testament: Stage Capsule",
+    detail: "High-visibility statement pieces and heirloom accessories.",
   },
   {
     month: "June 2026",
-    title: "Apex Psalms: Championship Cuts",
-    detail: "Faith-forward anthem package for arenas and documentary scores.",
+    title: "Apex Psalms: Collector Cut",
+    detail: "Heirloom tailoring and varsity architecture in low quantities.",
   },
 ];
 
@@ -548,8 +503,8 @@ export const productsBySlug = new Map(products.map((product) => [product.slug, p
 export const getProductBySlug = (slug: string) => productsBySlug.get(slug) ?? null;
 
 export const featuredProductSlugs = [
-  "obsidian-command",
-  "steel-veil",
-  "halo-track",
-  "archangel-score",
+  "obsidian-command-puffer",
+  "steel-veil-overcoat",
+  "halo-track-hoodie",
+  "saint-runner-sneaker",
 ];

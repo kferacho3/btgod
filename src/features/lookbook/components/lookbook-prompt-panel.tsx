@@ -1,15 +1,15 @@
 "use client";
 
-import { FormEvent } from "react";
+import type { FormEvent } from "react";
 import { useLookbookActions, useLookbookState } from "@/store/selectors";
 
 const promptTags = [
-  "Black Ice Techwear",
-  "Hard Light Soft Shadow",
-  "Polar Shells",
-  "Subway Platform Grain Film",
-  "City Night Editorial",
-  "Steel Structure",
+  "Crown-lit performance tunnel",
+  "Noir studio texture",
+  "Gold rim light",
+  "Rain-slick city blocks",
+  "Monochrome wardrobe discipline",
+  "High contrast editorial grain",
 ];
 
 export function LookbookPromptPanel() {
@@ -23,7 +23,7 @@ export function LookbookPromptPanel() {
   return (
     <article className="space-y-4 border border-[var(--line)] p-4">
       <p className="text-xs uppercase tracking-[0.19em] text-[var(--text-secondary)]">
-        Current Prompt: {lookbookPrompt}
+        Prompt Engine: {lookbookPrompt}
       </p>
       <div className="flex flex-wrap gap-2">
         {promptTags.map((tag) => (
@@ -46,7 +46,7 @@ export function LookbookPromptPanel() {
           onChange={(event) => setLookbookPrompt(event.target.value)}
         />
         <button type="submit" className="btn-solid h-12 min-w-36">
-          Generate Looks
+          Generate Visuals
         </button>
       </form>
     </article>

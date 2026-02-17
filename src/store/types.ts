@@ -1,37 +1,36 @@
-import type { BeatCategory, LicenseTierCode } from "@/lib/catalog";
+import type { ProductCategory, ProductSize } from "@/lib/catalog";
 
 export type ThemeMode = "night" | "day";
 
-export type ShopFilter = "all" | BeatCategory | "trending" | "exclusive";
+export type ShopFilter = "all" | ProductCategory | "trending" | "exclusive";
 
 export type ShopSort =
   | "featured"
   | "price-asc"
   | "price-desc"
   | "name-asc"
-  | "bpm-asc"
-  | "bpm-desc";
+  | "newest";
 
 export type CartItem = {
   productSlug: string;
   quantity: number;
-  license: LicenseTierCode;
+  size: ProductSize;
 };
 
 export type AddToCartPayload = {
   productSlug: string;
   quantity?: number;
-  license?: LicenseTierCode;
+  size?: ProductSize;
 };
 
 export type RemoveCartItemPayload = {
   productSlug: string;
-  license: LicenseTierCode;
+  size: ProductSize;
 };
 
 export type SetCartItemQuantityPayload = {
   productSlug: string;
-  license: LicenseTierCode;
+  size: ProductSize;
   quantity: number;
 };
 

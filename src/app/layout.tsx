@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | BTGOD",
   },
   description:
-    "BTGOD is a luxury minimal-street ecommerce concept for Be The Greatest Or Die.",
+    "BTGOD is a premium beat marketplace and record label platform for Be The Greatest Or Die.",
 };
 
 const themeBootstrapScript = `

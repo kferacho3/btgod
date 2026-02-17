@@ -2,29 +2,28 @@ import Link from "next/link";
 
 export default function SignInPage() {
   return (
-    <section className="card-shell grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_1fr]">
+    <section className="card-shell grid gap-8 p-6 sm:p-8 xl:grid-cols-[1fr_1fr]">
       <div className="space-y-6">
-        <p className="eyebrow">Account Sign In</p>
+        <p className="eyebrow">Member Sign In</p>
         <h1 className="display-font text-6xl leading-[0.88] tracking-[0.06em] sm:text-7xl">
           STEP INTO
           <br />
-          THE AURA
+          THE CATALOG
         </h1>
         <p className="max-w-lg text-sm uppercase tracking-[0.16em] text-[var(--text-secondary)]">
-          Sign in to manage orders, track drops, save favorites, and access
-          member-only launches.
+          Sign in to manage licensing history, save beat crates, and unlock private BTGOD drops.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
           <article className="border border-[var(--line)] p-4">
             <p className="eyebrow">Member Perk</p>
             <p className="mt-2 text-xs uppercase tracking-[0.14em] text-[var(--text-secondary)]">
-              Early access to limited capsules.
+              Early access to unreleased chart candidates.
             </p>
           </article>
           <article className="border border-[var(--line)] p-4">
             <p className="eyebrow">Member Perk</p>
             <p className="mt-2 text-xs uppercase tracking-[0.14em] text-[var(--text-secondary)]">
-              Saved sizing profile for faster checkout.
+              One-click relicense on saved campaigns.
             </p>
           </article>
         </div>
@@ -33,9 +32,7 @@ export default function SignInPage() {
       <form className="border border-[var(--line)] p-5 sm:p-6">
         <div className="space-y-2">
           <p className="eyebrow">Welcome Back</p>
-          <h2 className="display-font text-5xl leading-none tracking-[0.07em]">
-            Login
-          </h2>
+          <h2 className="display-font text-5xl leading-none tracking-[0.07em]">Login</h2>
         </div>
         <div className="mt-6 grid gap-3">
           <input
@@ -69,4 +66,3 @@ export default function SignInPage() {
     </section>
   );
 }
-

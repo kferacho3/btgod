@@ -4,7 +4,12 @@ import { useMemo } from "react";
 import { products } from "@/lib/catalog";
 import { useShopState } from "@/store/selectors";
 
-const TREND_BADGES = new Set(["Top Chart", "Trend Alert", "Fast Moving"]);
+const TREND_BADGES = new Set([
+  "Top Pick",
+  "Fast Moving",
+  "Trend Alert",
+  "Runway Favorite",
+]);
 
 export function useShopProducts() {
   const { shopFilter, shopSort } = useShopState();
@@ -30,11 +35,11 @@ export function useShopProducts() {
       case "name-asc":
         filtered.sort((a, b) => a.name.localeCompare(b.name));
         break;
-      case "bpm-asc":
-        filtered.sort((a, b) => a.bpm - b.bpm);
-        break;
-      case "bpm-desc":
-        filtered.sort((a, b) => b.bpm - a.bpm);
+      case "newest":
+        filtered.sort(
+          (a, b) =>
+            new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime(),
+        );
         break;
       case "featured":
       default:
