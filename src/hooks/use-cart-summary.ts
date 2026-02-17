@@ -3,16 +3,16 @@
 import { useMemo } from "react";
 import { productsBySlug } from "@/lib/catalog";
 import { useCartState } from "@/store/selectors";
-import type { LicenseTierCode } from "@/lib/catalog";
+import type { ProductSize } from "@/lib/catalog";
 
-const DELIVERY_RATE = 14;
-const TAX_RATE = 0.075;
+const SHIPPING_RATE = 18;
+const TAX_RATE = 0.08;
 
 export type ResolvedCartItem = {
   key: string;
   productSlug: string;
   quantity: number;
-  license: LicenseTierCode;
+  size: ProductSize;
   lineTotal: number;
   product: NonNullable<ReturnType<typeof productsBySlug.get>>;
 };
@@ -29,10 +29,10 @@ export function useCartSummary() {
 
       return [
         {
-          key: `${item.productSlug}-${item.license}`,
+          key: `${item.productSlug}-${item.size}`,
           productSlug: item.productSlug,
           quantity: item.quantity,
-          license: item.license,
+          size: item.size,
           lineTotal: product.price * item.quantity,
           product,
         },
@@ -40,14 +40,14 @@ export function useCartSummary() {
     });
 
     const subtotal = items.reduce((sum, item) => sum + item.lineTotal, 0);
-    const delivery = items.length > 0 ? DELIVERY_RATE : 0;
+    const shipping = items.length > 0 ? SHIPPING_RATE : 0;
     const tax = Math.round(subtotal * TAX_RATE);
-    const total = subtotal + delivery + tax;
+    const total = subtotal + shipping + tax;
 
     return {
       items,
       subtotal,
-      delivery,
+      shipping,
       tax,
       total,
       isEmpty: items.length === 0,

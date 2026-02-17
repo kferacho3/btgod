@@ -4,10 +4,10 @@ import { notFound } from "next/navigation";
 import { ProductCard } from "@/components/product-card";
 import { ProductPurchaseActions } from "@/features/shop/components/product-purchase-actions";
 import {
-  chartHighlights,
   getProductBySlug,
-  licensingTiers,
   products,
+  sizeTiers,
+  trendHighlights,
 } from "@/lib/catalog";
 import { formatCurrency } from "@/lib/format";
 
@@ -29,8 +29,8 @@ export default async function ProductDetailPage({
     notFound();
   }
 
-  const chartSnapshot = chartHighlights.find(
-    (highlight) => highlight.beatSlug === product.slug,
+  const trendSnapshot = trendHighlights.find(
+    (highlight) => highlight.productSlug === product.slug,
   );
 
   const relatedProducts = products
@@ -56,7 +56,7 @@ export default async function ProductDetailPage({
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
           <span className="pill surface-subtle absolute left-4 top-4">{product.badge}</span>
           <div className="absolute bottom-0 left-0 right-0 border-t border-[var(--line)] bg-black/45 px-4 py-3 text-[0.62rem] uppercase tracking-[0.17em] text-[var(--text-secondary)]">
-            {product.bpm} BPM • {product.musicalKey} • {product.duration}
+            {product.weight} • {product.category} • {product.releaseDate}
           </div>
         </div>
 
@@ -73,45 +73,35 @@ export default async function ProductDetailPage({
 
           <div className="grid gap-3 sm:grid-cols-2">
             <article className="border border-[var(--line)] p-4">
-              <p className="eyebrow">Producer</p>
+              <p className="eyebrow">Materials</p>
               <p className="mt-2 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-                {product.producer}
+                {product.materials}
               </p>
             </article>
             <article className="border border-[var(--line)] p-4">
-              <p className="eyebrow">Format</p>
+              <p className="eyebrow">Fit</p>
               <p className="mt-2 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-                {product.format}
+                {product.fit}
               </p>
             </article>
             <article className="border border-[var(--line)] p-4">
-              <p className="eyebrow">Mood</p>
+              <p className="eyebrow">Silhouette</p>
               <p className="mt-2 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-                {product.mood} • Energy {product.energy}
+                {product.silhouette}
               </p>
             </article>
             <article className="border border-[var(--line)] p-4">
-              <p className="eyebrow">Stem Count</p>
+              <p className="eyebrow">Colorway</p>
               <p className="mt-2 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-                {product.stems} stem channels
+                {product.colorway}
               </p>
             </article>
           </div>
 
           <article className="border border-[var(--line)] p-4">
-            <p className="eyebrow">Sonic Notes</p>
+            <p className="eyebrow">Aura Notes</p>
             <p className="mt-2 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-              {product.sonicNotes}
-            </p>
-            <p className="mt-2 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-              Arrangement • {product.arrangement}
-            </p>
-          </article>
-
-          <article className="border border-[var(--line)] p-4">
-            <p className="eyebrow">Licensing Hint</p>
-            <p className="mt-2 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-              {product.licensingHint}
+              {product.aura}
             </p>
           </article>
 
@@ -129,7 +119,7 @@ export default async function ProductDetailPage({
             </p>
             <ProductPurchaseActions productSlug={product.slug} />
             <Link href="/shop" className="btn-outline w-full sm:w-auto">
-              Back To Catalog
+              Back To Shop
             </Link>
           </div>
         </div>
@@ -137,9 +127,9 @@ export default async function ProductDetailPage({
 
       <section className="grid gap-5 xl:grid-cols-[1.15fr_0.85fr]">
         <article className="royal-shell space-y-4 p-5 sm:p-6">
-          <p className="eyebrow">License Ladder</p>
+          <p className="eyebrow">Size Architecture</p>
           <div className="grid gap-3 sm:grid-cols-2">
-            {licensingTiers.map((tier) => (
+            {sizeTiers.map((tier) => (
               <article key={tier.code} className="border border-[var(--line)] p-4">
                 <p className="display-font text-3xl leading-none tracking-[0.08em]">
                   {tier.code} • {tier.name}
@@ -153,25 +143,25 @@ export default async function ProductDetailPage({
         </article>
 
         <article className="royal-shell space-y-4 p-5 sm:p-6">
-          <p className="eyebrow">Chart Snapshot</p>
-          {chartSnapshot ? (
+          <p className="eyebrow">Trend Snapshot</p>
+          {trendSnapshot ? (
             <div className="space-y-3 border border-[var(--line)] p-4">
               <h2 className="display-font text-4xl leading-none tracking-[0.07em]">
-                {chartSnapshot.rank}
+                {trendSnapshot.rank}
               </h2>
               <p className="text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-                Streams {chartSnapshot.streams}
+                Sell-through {trendSnapshot.sellThrough}
               </p>
               <p className="text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-                Saves {chartSnapshot.saves}
+                Wishlist {trendSnapshot.wishlist}
               </p>
               <p className="text-xs uppercase tracking-[0.15em] text-[var(--metal-gold)]">
-                Growth {chartSnapshot.growth}
+                Growth {trendSnapshot.growth}
               </p>
             </div>
           ) : (
             <p className="text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">
-              Fresh drop. Chart analytics are still being indexed.
+              Fresh drop. Trend analytics are still being indexed.
             </p>
           )}
         </article>
@@ -179,9 +169,9 @@ export default async function ProductDetailPage({
 
       <section className="space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <h2 className="display-font text-5xl tracking-[0.06em]">Related Beats</h2>
+          <h2 className="display-font text-5xl tracking-[0.06em]">Related Pieces</h2>
           <Link href="/shop" className="btn-outline">
-            Browse All
+            Shop All
           </Link>
         </div>
         <div className="grid gap-4 md:grid-cols-3">

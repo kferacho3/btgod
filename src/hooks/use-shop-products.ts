@@ -11,6 +11,8 @@ const TREND_BADGES = new Set([
   "Runway Favorite",
 ]);
 
+const productIndex = new Map(products.map((product, index) => [product.slug, index]));
+
 export function useShopProducts() {
   const { shopFilter, shopSort } = useShopState();
 
@@ -38,7 +40,7 @@ export function useShopProducts() {
       case "newest":
         filtered.sort(
           (a, b) =>
-            new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime(),
+            (productIndex.get(b.slug) ?? 0) - (productIndex.get(a.slug) ?? 0),
         );
         break;
       case "featured":
