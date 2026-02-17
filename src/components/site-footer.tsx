@@ -3,9 +3,9 @@ import { BrandLockup } from "@/components/brand-lockup";
 
 const footerLinks = [
   { href: "/collections", label: "Collections" },
-  { href: "/shop", label: "Shop" },
-  { href: "/lookbook", label: "Lookbook" },
-  { href: "/account/sign-in", label: "Account" },
+  { href: "/shop", label: "Beat Vault" },
+  { href: "/lookbook", label: "Visual Lab" },
+  { href: "/account/sign-in", label: "Artist Access" },
 ];
 
 export function SiteFooter() {
@@ -17,15 +17,15 @@ export function SiteFooter() {
             <div className="banner-track text-[0.58rem] uppercase tracking-[0.16em] text-[var(--text-secondary)] sm:tracking-[0.24em]">
               <span>Drop Alerts</span>
               <span className="metal-text">•</span>
-              <span>Exclusive Events</span>
+              <span>Producer Sessions</span>
               <span className="metal-text">•</span>
-              <span>Private Capsule Access</span>
+              <span>Exclusive Beat Releases</span>
               <span className="metal-text">•</span>
               <span>Drop Alerts</span>
               <span className="metal-text">•</span>
-              <span>Exclusive Events</span>
+              <span>Producer Sessions</span>
               <span className="metal-text">•</span>
-              <span>Private Capsule Access</span>
+              <span>Exclusive Beat Releases</span>
             </div>
           </div>
         </div>
@@ -37,15 +37,11 @@ export function SiteFooter() {
               BTGOD Newsletter
             </h2>
             <p className="max-w-md text-[0.68rem] uppercase tracking-[0.17em] text-[var(--text-secondary)]">
-              Drop alerts, limited runs, and exclusive offers straight to your inbox.
+              Drop alerts, producer updates, and private catalog invites direct to your inbox.
             </p>
           </div>
           <form className="grid gap-3 sm:grid-cols-[1fr_auto]">
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="field-input h-12"
-            />
+            <input type="email" placeholder="Email Address" className="field-input h-12" />
             <button type="submit" className="btn-solid h-12 min-w-32">
               Join
             </button>
@@ -56,7 +52,7 @@ export function SiteFooter() {
           <div className="space-y-2">
             <BrandLockup compact />
             <p className="text-[0.63rem] uppercase tracking-[0.2em] text-[var(--text-secondary)]">
-              New York City • Built For Greatness
+              Global Catalog • Built For Greatness
             </p>
           </div>
           <nav className="flex w-full flex-wrap justify-start gap-4 text-[0.63rem] uppercase tracking-[0.2em] text-[var(--text-secondary)] sm:w-auto sm:justify-end">
