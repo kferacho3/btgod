@@ -32,16 +32,16 @@ export function ProductCard({ product }: ProductCardProps) {
         <span className="pill surface-subtle absolute left-4 top-4">{product.badge}</span>
 
         <div className="absolute bottom-0 left-0 right-0 grid grid-cols-3 border-t border-[var(--line)] bg-black/45 px-3 py-2 text-[0.58rem] uppercase tracking-[0.16em] text-[var(--text-secondary)]">
-          <span>{product.weight}</span>
-          <span className="text-center">{product.category}</span>
-          <span className="text-right">{product.releaseDate}</span>
+          <span className="truncate">{product.weight}</span>
+          <span className="truncate text-center">{product.category}</span>
+          <span className="truncate text-right">{product.releaseDate}</span>
         </div>
       </div>
 
       <div className="flex flex-1 flex-col gap-4 p-5">
         <div className="space-y-2">
           <p className="eyebrow">{product.collection}</p>
-          <h3 className="display-font text-3xl leading-none tracking-[0.08em]">
+          <h3 className="display-font text-2xl leading-none tracking-[0.08em] sm:text-3xl">
             {product.name}
           </h3>
           <p className="text-[0.64rem] uppercase tracking-[0.16em] text-[var(--text-secondary)]">

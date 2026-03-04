@@ -19,12 +19,20 @@
   --metal-silver-soft: rgba(201, 204, 212, 0.24);
   --shadow-heavy: 0 34px 80px rgba(0, 0, 0, 0.56);
   --backdrop: rgba(6, 8, 12, 0.78);
-  --surface-grad: linear-gradient(
-    145deg,
-    color-mix(in srgb, #13151b 90%, transparent) 0%,
-    color-mix(in srgb, #0c0f15 88%, transparent) 52%,
-    color-mix(in srgb, #141821 88%, transparent) 100%
-  );
+  --surface-grad: linear-gradient(145deg, #13151b 0%, #0c0f15 52%, #141821 100%);
+  --royal-shell-bg: linear-gradient(160deg, #14171f 0%, #10131a 100%);
+  --surface-subtle-bg: rgba(16, 18, 24, 0.92);
+  --surface-soft-bg: rgba(13, 15, 20, 0.88);
+  --brand-banner-bg: linear-gradient(100deg, rgba(19, 22, 30, 0.92) 0%, rgba(13, 15, 20, 0.9) 100%);
+  --btn-solid-border: #d4b16a;
+  --btn-outline-bg: rgba(13, 15, 20, 0.65);
+  --pill-bg: rgba(13, 15, 20, 0.84);
+  --field-input-bg: rgba(13, 15, 20, 0.9);
+  --field-placeholder: rgba(156, 148, 129, 0.78);
+  --shine-border-color: rgba(244, 222, 171, 0.22);
+  --ambient-gold-soft-1: rgba(226, 190, 115, 0.16);
+  --ambient-gold-soft-2: rgba(226, 190, 115, 0.14);
+  --ambient-gold-soft-3: rgba(226, 190, 115, 0.11);
 }
 
 html[data-theme="day"] {
@@ -44,12 +52,20 @@ html[data-theme="day"] {
   --metal-silver-soft: rgba(107, 116, 131, 0.18);
   --shadow-heavy: 0 26px 70px rgba(17, 20, 27, 0.2);
   --backdrop: rgba(255, 252, 246, 0.8);
-  --surface-grad: linear-gradient(
-    145deg,
-    color-mix(in srgb, #f6f0e4 88%, transparent) 0%,
-    color-mix(in srgb, #fffaf1 90%, transparent) 55%,
-    color-mix(in srgb, #f0e6d5 92%, transparent) 100%
-  );
+  --surface-grad: linear-gradient(145deg, #f6f0e4 0%, #fffaf1 55%, #f0e6d5 100%);
+  --royal-shell-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.93) 0%, rgba(242, 234, 220, 0.92) 100%);
+  --surface-subtle-bg: rgba(255, 255, 255, 0.92);
+  --surface-soft-bg: rgba(249, 243, 232, 0.9);
+  --brand-banner-bg: linear-gradient(100deg, rgba(255, 250, 241, 0.96) 0%, rgba(240, 230, 213, 0.9) 100%);
+  --btn-solid-border: #bf944b;
+  --btn-outline-bg: rgba(244, 240, 231, 0.72);
+  --pill-bg: rgba(255, 255, 255, 0.86);
+  --field-input-bg: rgba(255, 255, 255, 0.92);
+  --field-placeholder: rgba(117, 105, 76, 0.75);
+  --shine-border-color: rgba(176, 134, 59, 0.22);
+  --ambient-gold-soft-1: rgba(176, 134, 59, 0.12);
+  --ambient-gold-soft-2: rgba(176, 134, 59, 0.1);
+  --ambient-gold-soft-3: rgba(176, 134, 59, 0.08);
 }
 
 * {
@@ -131,18 +147,18 @@ body::after {
   background:
     radial-gradient(
       560px circle at 84% 16%,
-      color-mix(in srgb, var(--metal-gold-soft) 52%, transparent),
+      var(--ambient-gold-soft-1),
       transparent 72%
     ),
     radial-gradient(
       680px circle at 12% 86%,
-      color-mix(in srgb, var(--metal-gold-soft) 48%, transparent),
+      var(--ambient-gold-soft-2),
       transparent 74%
     ),
     linear-gradient(
       112deg,
       transparent 18%,
-      color-mix(in srgb, var(--metal-gold-soft) 36%, transparent) 50%,
+      var(--ambient-gold-soft-3) 50%,
       transparent 82%
     );
   transform: translate3d(0, var(--scroll-shift-y), 0);
@@ -161,6 +177,7 @@ a {
 .display-font {
   font-family: "Cinzel", "Trajan Pro", "Times New Roman", serif;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 .serif-font {
@@ -184,11 +201,7 @@ a {
 .royal-shell {
   border: 1px solid var(--line);
   background: rgba(13, 15, 20, 0.92);
-  background: linear-gradient(
-    160deg,
-    color-mix(in srgb, var(--bg-elevated) 90%, transparent) 0%,
-    color-mix(in srgb, var(--bg-soft) 74%, transparent) 100%
-  );
+  background: var(--royal-shell-bg);
   box-shadow: var(--shadow-heavy);
 }
 
@@ -198,6 +211,7 @@ a {
   text-transform: uppercase;
   font-size: 0.68rem;
   font-weight: 700;
+  line-height: 1.45;
 }
 
 .metal-text {
@@ -217,7 +231,7 @@ a {
   align-items: center;
   justify-content: center;
   min-height: 2.75rem;
-  border: 1px solid color-mix(in srgb, var(--metal-gold) 78%, #fff 22%);
+  border: 1px solid var(--btn-solid-border);
   background: linear-gradient(
     108deg,
     var(--metal-gold-deep) 0%,
@@ -248,7 +262,7 @@ a {
   justify-content: center;
   min-height: 2.75rem;
   border: 1px solid var(--line-strong);
-  background: color-mix(in srgb, var(--bg-elevated) 65%, transparent);
+  background: var(--btn-outline-bg);
   color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 0.19em;
@@ -263,12 +277,13 @@ a {
 
 .btn-outline:hover {
   border-color: var(--metal-gold);
+  background: var(--surface-soft-bg);
   background: color-mix(in srgb, var(--bg-soft) 84%, transparent);
 }
 
 .pill {
   border: 1px solid var(--line-strong);
-  background: color-mix(in srgb, var(--bg-elevated) 84%, transparent);
+  background: var(--pill-bg);
   padding: 0.4rem 0.72rem;
   font-size: 0.68rem;
   letter-spacing: 0.16em;
@@ -279,7 +294,7 @@ a {
 .field-input {
   width: 100%;
   border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--bg-elevated) 90%, transparent);
+  background: var(--field-input-bg);
   padding: 0.8rem 0.9rem;
   font-size: 0.78rem;
   letter-spacing: 0.12em;
@@ -288,8 +303,7 @@ a {
 }
 
 .field-input::placeholder {
-  color: rgba(156, 148, 129, 0.78);
-  color: color-mix(in srgb, var(--text-secondary) 70%, transparent);
+  color: var(--field-placeholder);
 }
 
 .field-input:focus {
@@ -370,7 +384,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  border: 1px solid color-mix(in srgb, var(--metal-gold-bright) 35%, transparent);
+  border: 1px solid var(--shine-border-color);
   opacity: 0.18;
   pointer-events: none;
   z-index: 2;
@@ -399,6 +413,14 @@ a {
 .gold-divider {
   height: 1px;
   width: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(226, 190, 115, 0.3) 20%,
+    rgba(244, 222, 171, 0.5) 50%,
+    rgba(226, 190, 115, 0.3) 80%,
+    transparent 100%
+  );
   background: linear-gradient(
     to right,
     transparent 0%,
@@ -441,28 +463,46 @@ a {
 .brand-banner {
   border: 1px solid var(--line);
   background: rgba(13, 15, 20, 0.92);
-  background: linear-gradient(
-    100deg,
-    color-mix(in srgb, var(--bg-elevated) 88%, transparent) 0%,
-    color-mix(in srgb, var(--bg-soft) 72%, transparent) 100%
-  );
+  background: var(--brand-banner-bg);
 }
 
 .surface-subtle {
-  background: rgba(16, 18, 24, 0.92);
+  background: var(--surface-subtle-bg);
 }
 
 .surface-soft {
-  background: rgba(13, 15, 20, 0.88);
+  background: var(--surface-soft-bg);
 }
 
 @supports (background: color-mix(in srgb, white 50%, black 50%)) {
-  .surface-subtle {
-    background: color-mix(in srgb, var(--bg-elevated) 90%, transparent);
-  }
-
-  .surface-soft {
-    background: color-mix(in srgb, var(--bg-elevated) 84%, transparent);
+  :root {
+    --surface-grad: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--bg-elevated) 90%, transparent) 0%,
+      color-mix(in srgb, var(--bg-soft) 88%, transparent) 52%,
+      color-mix(in srgb, var(--bg-soft) 72%, transparent) 100%
+    );
+    --royal-shell-bg: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--bg-elevated) 90%, transparent) 0%,
+      color-mix(in srgb, var(--bg-soft) 74%, transparent) 100%
+    );
+    --surface-subtle-bg: color-mix(in srgb, var(--bg-elevated) 90%, transparent);
+    --surface-soft-bg: color-mix(in srgb, var(--bg-elevated) 84%, transparent);
+    --brand-banner-bg: linear-gradient(
+      100deg,
+      color-mix(in srgb, var(--bg-elevated) 88%, transparent) 0%,
+      color-mix(in srgb, var(--bg-soft) 72%, transparent) 100%
+    );
+    --btn-solid-border: color-mix(in srgb, var(--metal-gold) 78%, #fff 22%);
+    --btn-outline-bg: color-mix(in srgb, var(--bg-elevated) 65%, transparent);
+    --pill-bg: color-mix(in srgb, var(--bg-elevated) 84%, transparent);
+    --field-input-bg: color-mix(in srgb, var(--bg-elevated) 90%, transparent);
+    --field-placeholder: color-mix(in srgb, var(--text-secondary) 70%, transparent);
+    --shine-border-color: color-mix(in srgb, var(--metal-gold-bright) 35%, transparent);
+    --ambient-gold-soft-1: color-mix(in srgb, var(--metal-gold-soft) 52%, transparent);
+    --ambient-gold-soft-2: color-mix(in srgb, var(--metal-gold-soft) 48%, transparent);
+    --ambient-gold-soft-3: color-mix(in srgb, var(--metal-gold-soft) 36%, transparent);
   }
 }
 
@@ -553,6 +593,21 @@ a {
 }
 
 @media (max-width: 900px) {
+  body::before,
+  body::after {
+    transform: none;
+    will-change: auto;
+  }
+
+  .eyebrow {
+    letter-spacing: 0.18em;
+  }
+
+  .pill,
+  .field-input {
+    letter-spacing: 0.14em;
+  }
+
   .banner-track {
     gap: 1.5rem;
     padding-right: 1.5rem;
@@ -592,12 +647,26 @@ a {
     padding: 0.72rem 0.9rem;
   }
 
+  .banner-marquee,
+  .ticker-marquee {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .banner-marquee::-webkit-scrollbar,
+  .ticker-marquee::-webkit-scrollbar {
+    display: none;
+  }
+
   .banner-track {
-    animation-duration: 20s;
+    animation: none;
+    padding-right: 1rem;
   }
 
   .ticker-track {
-    animation-duration: 22s;
+    animation: none;
+    gap: 1rem;
   }
 
   .frame-grid {
@@ -608,5 +677,15 @@ a {
 @media (hover: none) {
   .hover-lift:hover {
     transform: none;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .banner-track,
+  .ticker-track,
+  .crest-float,
+  .shimmer-text,
+  .gold-divider {
+    animation: none !important;
   }
 }

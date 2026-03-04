@@ -36,12 +36,12 @@ export function HomeSignatureSection() {
           Street Luxury
         </h2>
 
-        <p className="max-w-2xl text-[0.7rem] uppercase tracking-[0.17em] text-[var(--text-secondary)]">
+        <p className="max-w-2xl text-[0.68rem] uppercase leading-relaxed tracking-[0.14em] text-[var(--text-secondary)] sm:text-[0.7rem] sm:tracking-[0.17em]">
           BTGOD builds five-star fashion for the new elite: rappers, athletes, founders, and
           creators who demand clean design with undeniable presence.
         </p>
 
-        <div className="grid gap-2 sm:grid-cols-3">
+        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {signaturePoints.map((point) => (
             <article key={point} className="surface-soft border border-[var(--line)] px-3 py-3">
               <p className="text-[0.62rem] uppercase tracking-[0.16em] text-[var(--text-secondary)]">

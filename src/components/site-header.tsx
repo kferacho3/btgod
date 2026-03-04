@@ -56,7 +56,7 @@ export function SiteHeader() {
           <div className="ml-auto flex w-full flex-wrap items-center justify-end gap-2 sm:w-auto">
             <button
               type="button"
-              className="btn-outline h-10 min-w-[5.1rem] px-3 py-0 md:hidden"
+              className="btn-outline h-10 min-w-[4.6rem] px-3 py-0 sm:min-w-[5.1rem] md:hidden"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-site-menu"
@@ -78,7 +78,7 @@ export function SiteHeader() {
 
             <Link
               href="/cart"
-              className="btn-outline h-10 min-w-[5rem] px-3 py-0 sm:min-w-[6rem]"
+              className="btn-outline h-10 min-w-[4.8rem] px-3 py-0 sm:min-w-[6rem]"
             >
               Cart ({cartCount})
             </Link>
@@ -121,11 +121,11 @@ export function SiteHeader() {
 
         <div className="overflow-hidden border border-[var(--line)] bg-[var(--bg-elevated)] px-3 py-2">
           <div className="ticker-marquee">
-            <div className="ticker-track whitespace-nowrap text-sm tracking-[0.2em] sm:text-xl sm:tracking-[0.34em]">
+            <div className="ticker-track whitespace-nowrap text-[0.66rem] tracking-[0.12em] sm:text-lg sm:tracking-[0.24em] lg:text-xl lg:tracking-[0.34em]">
               {tickerLoop.map((item, index) => (
                 <span
                   key={`${item}-${index}`}
-                  className="inline-flex items-center gap-4 pr-8 lux-ticker"
+                  className="inline-flex items-center gap-2 pr-5 lux-ticker sm:gap-4 sm:pr-8"
                 >
                   {item}
                   <span className="text-[var(--metal-gold)]">✦</span>

@@ -34,7 +34,7 @@ export default function LookbookPage() {
           }
         />
 
-        <div className="grid gap-3 sm:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {visualDirections.map((direction) => (
             <article key={direction.title} className="surface-soft border border-[var(--line)] p-4">
               <p className="display-font text-2xl leading-none tracking-[0.08em] sm:text-3xl">

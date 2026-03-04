@@ -20,7 +20,7 @@ export function SectionHeading({
         <h2 className="display-font text-[clamp(1.9rem,8.6vw,3.2rem)] leading-[0.94] tracking-[0.06em] sm:tracking-[0.07em]">
           {title}
         </h2>
-        <p className="max-w-2xl text-[0.68rem] uppercase tracking-[0.15em] text-[var(--text-secondary)] sm:tracking-[0.18em]">
+        <p className="max-w-2xl text-[0.66rem] uppercase leading-relaxed tracking-[0.13em] text-[var(--text-secondary)] sm:text-[0.68rem] sm:tracking-[0.18em]">
           {description}
         </p>
       </div>

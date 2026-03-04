@@ -10,7 +10,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="btn-outline h-10 min-w-[5.2rem] px-3 py-0 sm:min-w-[6rem]"
+      className="btn-outline h-10 min-w-[4.8rem] px-3 py-0 sm:min-w-[6rem]"
       aria-label="Toggle day and night theme"
     >
       {theme === "night" ? "Day" : "Night"}

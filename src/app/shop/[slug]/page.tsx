@@ -55,8 +55,12 @@ export default async function ProductDetailPage({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
           <span className="pill surface-subtle absolute left-4 top-4">{product.badge}</span>
-          <div className="absolute bottom-0 left-0 right-0 border-t border-[var(--line)] bg-black/45 px-4 py-3 text-[0.62rem] uppercase tracking-[0.17em] text-[var(--text-secondary)]">
-            {product.weight} • {product.category} • {product.releaseDate}
+          <div className="absolute bottom-0 left-0 right-0 flex flex-wrap gap-x-2 gap-y-1 border-t border-[var(--line)] bg-black/45 px-4 py-3 text-[0.6rem] uppercase tracking-[0.14em] text-[var(--text-secondary)] sm:text-[0.62rem] sm:tracking-[0.17em]">
+            <span>{product.weight}</span>
+            <span aria-hidden>•</span>
+            <span>{product.category}</span>
+            <span aria-hidden>•</span>
+            <span>{product.releaseDate}</span>
           </div>
         </div>
 

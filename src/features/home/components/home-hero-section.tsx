@@ -20,7 +20,7 @@ export function HomeHeroSection() {
           <span className="shimmer-text">Or Die</span>
         </h1>
 
-        <p className="reveal-up reveal-delay-2 max-w-2xl text-[0.72rem] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
+        <p className="reveal-up reveal-delay-2 max-w-2xl text-[0.68rem] uppercase leading-relaxed tracking-[0.14em] text-[var(--text-secondary)] sm:text-[0.72rem] sm:tracking-[0.18em]">
           High-luxury fashion for rappers, athletes, and creators. Minimalism with power,
           crafted in blacks, whites, gold, and silver with elite tailoring discipline.
         </p>
@@ -34,7 +34,7 @@ export function HomeHeroSection() {
           </Link>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {brandPillars.map((pillar, index) => (
             <article
               key={pillar.title}

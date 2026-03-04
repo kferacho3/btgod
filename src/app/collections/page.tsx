@@ -49,7 +49,7 @@ export default function CollectionsPage() {
                     </p>
                   </div>
 
-                  <div className="grid gap-3 sm:grid-cols-3">
+                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                     <article className="border border-[var(--line)] p-4">
                       <p className="eyebrow">Mood</p>
                       <p className="mt-2 text-xs uppercase tracking-[0.14em] text-[var(--text-secondary)]">
