@@ -528,6 +528,10 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .reveal-up,
   .crest-float,
   .shimmer-text,
