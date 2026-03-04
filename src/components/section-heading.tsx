@@ -14,17 +14,21 @@ export function SectionHeading({
   action,
 }: SectionHeadingProps) {
   return (
-    <div className="flex flex-wrap items-start justify-between gap-6">
+    <div className="flex flex-wrap items-start justify-between gap-4 sm:gap-6">
       <div className="max-w-2xl space-y-3">
         <p className="eyebrow">{eyebrow}</p>
-        <h2 className="display-font text-4xl leading-none tracking-[0.07em] sm:text-5xl">
+        <h2 className="display-font text-[clamp(1.9rem,8.6vw,3.2rem)] leading-[0.94] tracking-[0.06em] sm:tracking-[0.07em]">
           {title}
         </h2>
-        <p className="max-w-2xl text-[0.68rem] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
+        <p className="max-w-2xl text-[0.68rem] uppercase tracking-[0.15em] text-[var(--text-secondary)] sm:tracking-[0.18em]">
           {description}
         </p>
       </div>
-      {action ? <div className="pt-1">{action}</div> : null}
+      {action ? (
+        <div className="w-full pt-1 sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
+          {action}
+        </div>
+      ) : null}
     </div>
   );
 }

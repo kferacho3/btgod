@@ -33,7 +33,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--line)] glass-shell">
-      <div className="mx-auto flex w-full max-w-[1460px] flex-col gap-4 px-5 py-3 sm:px-8 lg:px-10">
+      <div className="mx-auto flex w-full max-w-[1460px] flex-col gap-4 px-4 py-3 sm:px-8 lg:px-10">
         <AnnouncementBanner />
 
         <div className="grid items-center gap-3 border border-[var(--line)] bg-[var(--bg-elevated)] px-3 py-3 md:grid-cols-[1fr_auto_1fr]">
@@ -53,10 +53,10 @@ export function SiteHeader() {
             <BrandLockup compact />
           </Link>
 
-          <div className="ml-auto flex w-full flex-wrap items-center justify-end gap-2 sm:w-auto sm:flex-nowrap">
+          <div className="ml-auto flex w-full flex-wrap items-center justify-end gap-2 sm:w-auto">
             <button
               type="button"
-              className="btn-outline h-9 px-3 py-0 md:hidden"
+              className="btn-outline h-10 min-w-[5.1rem] px-3 py-0 md:hidden"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-site-menu"
@@ -78,7 +78,7 @@ export function SiteHeader() {
 
             <Link
               href="/cart"
-              className="btn-outline h-9 min-w-[5.6rem] px-3 py-0 sm:min-w-[6.4rem]"
+              className="btn-outline h-10 min-w-[5rem] px-3 py-0 sm:min-w-[6rem]"
             >
               Cart ({cartCount})
             </Link>
@@ -121,7 +121,7 @@ export function SiteHeader() {
 
         <div className="overflow-hidden border border-[var(--line)] bg-[var(--bg-elevated)] px-3 py-2">
           <div className="ticker-marquee">
-            <div className="ticker-track whitespace-nowrap text-base tracking-[0.3em] sm:text-xl sm:tracking-[0.4em]">
+            <div className="ticker-track whitespace-nowrap text-sm tracking-[0.2em] sm:text-xl sm:tracking-[0.34em]">
               {tickerLoop.map((item, index) => (
                 <span
                   key={`${item}-${index}`}

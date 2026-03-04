@@ -5,7 +5,7 @@ export default function SignInPage() {
     <section className="card-shell grid gap-8 p-6 sm:p-8 xl:grid-cols-[1fr_1fr]">
       <div className="space-y-6">
         <p className="eyebrow">Account Sign In</p>
-        <h1 className="display-font text-6xl leading-[0.88] tracking-[0.06em] sm:text-7xl">
+        <h1 className="display-font text-[clamp(2.2rem,10vw,4.6rem)] leading-[0.88] tracking-[0.05em] sm:tracking-[0.06em]">
           STEP INTO
           <br />
           THE AURA
@@ -32,7 +32,9 @@ export default function SignInPage() {
       <form className="border border-[var(--line)] p-5 sm:p-6">
         <div className="space-y-2">
           <p className="eyebrow">Welcome Back</p>
-          <h2 className="display-font text-5xl leading-none tracking-[0.07em]">Login</h2>
+          <h2 className="display-font text-[clamp(1.8rem,8vw,3rem)] leading-[0.95] tracking-[0.07em]">
+            Login
+          </h2>
         </div>
         <div className="mt-6 grid gap-3">
           <input

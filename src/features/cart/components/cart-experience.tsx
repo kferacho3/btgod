@@ -23,7 +23,7 @@ export function CartExperience() {
       {isEmpty ? (
         <article className="border border-[var(--line)] p-6">
           <p className="eyebrow">No Pieces Added</p>
-          <h2 className="display-font mt-2 text-5xl leading-none tracking-[0.07em]">
+          <h2 className="display-font mt-2 text-[clamp(1.9rem,9vw,3.1rem)] leading-[0.95] tracking-[0.07em]">
             Your Cart Is Empty
           </h2>
           <p className="mt-3 text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">

@@ -34,17 +34,17 @@ export function CookieConsentBar() {
           <span className="mr-2 font-semibold text-[var(--text-primary)]">Cookies</span>
           We use essential and analytics cookies to improve your experience.
         </p>
-        <div className="flex gap-2">
+        <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
           <button
             type="button"
-            className="btn-outline h-10 px-4 py-0"
+            className="btn-outline h-10 w-full px-4 py-0 sm:w-auto"
             onClick={() => handleConsent("essential")}
           >
             Essential Only
           </button>
           <button
             type="button"
-            className="btn-solid h-10 px-4 py-0"
+            className="btn-solid h-10 w-full px-4 py-0 sm:w-auto"
             onClick={() => handleConsent("all")}
           >
             Accept All

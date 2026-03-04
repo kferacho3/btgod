@@ -26,7 +26,7 @@ export function CartItemCard({ item }: CartItemCardProps) {
 
       <div className="flex flex-col gap-3">
         <p className="eyebrow">{item.product.collection}</p>
-        <h2 className="display-font text-3xl leading-none tracking-[0.06em] sm:text-4xl">
+        <h2 className="display-font text-[clamp(1.7rem,8vw,2.4rem)] leading-[0.95] tracking-[0.06em]">
           {item.product.name}
         </h2>
         <p className="text-xs uppercase tracking-[0.15em] text-[var(--text-secondary)]">

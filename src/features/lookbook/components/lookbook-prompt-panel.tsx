@@ -45,7 +45,7 @@ export function LookbookPromptPanel() {
           value={lookbookPrompt}
           onChange={(event) => setLookbookPrompt(event.target.value)}
         />
-        <button type="submit" className="btn-solid h-12 min-w-36">
+        <button type="submit" className="btn-solid h-12 w-full sm:w-auto sm:min-w-36">
           Generate Looks
         </button>
       </form>

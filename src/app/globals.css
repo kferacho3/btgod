@@ -65,10 +65,13 @@ body {
 
 html {
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   position: relative;
+  min-height: 100vh;
   min-height: 100dvh;
   background:
     radial-gradient(
@@ -88,6 +91,14 @@ body {
   line-height: 1.45;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
 }
 
 body::before {
@@ -205,6 +216,7 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 2.75rem;
   border: 1px solid color-mix(in srgb, var(--metal-gold) 78%, #fff 22%);
   background: linear-gradient(
     108deg,
@@ -218,8 +230,11 @@ a {
   letter-spacing: 0.19em;
   font-size: 0.66rem;
   font-weight: 700;
+  line-height: 1.1;
   padding: 0.8rem 1.18rem;
   transition: transform 180ms ease, opacity 180ms ease, filter 180ms ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-solid:hover {
@@ -231,6 +246,7 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 2.75rem;
   border: 1px solid var(--line-strong);
   background: color-mix(in srgb, var(--bg-elevated) 65%, transparent);
   color: var(--text-primary);
@@ -238,8 +254,11 @@ a {
   letter-spacing: 0.19em;
   font-size: 0.66rem;
   font-weight: 700;
+  line-height: 1.1;
   padding: 0.8rem 1.18rem;
   transition: border-color 180ms ease, background-color 180ms ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-outline:hover {
@@ -403,6 +422,7 @@ a {
   gap: 2.4rem;
   padding-right: 2.4rem;
   animation: marquee-slide 24s linear infinite;
+  will-change: transform;
 }
 
 .ticker-marquee {
@@ -415,6 +435,7 @@ a {
   align-items: center;
   gap: 2rem;
   animation: marquee-slide 28s linear infinite;
+  will-change: transform;
 }
 
 .brand-banner {
@@ -448,6 +469,12 @@ a {
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .glass-shell {
     background: rgba(10, 12, 18, 0.95);
+  }
+}
+
+@supports not (height: 100dvh) {
+  body {
+    min-height: 100vh;
   }
 }
 
@@ -539,10 +566,14 @@ a {
 @media (max-width: 640px) {
   body::before {
     opacity: 0.28;
+    transform: none;
+    will-change: auto;
   }
 
   body::after {
     opacity: calc(0.09 + (var(--scroll-progress) * 0.04));
+    transform: none;
+    will-change: auto;
   }
 
   .eyebrow {
@@ -567,5 +598,11 @@ a {
 
   .frame-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (hover: none) {
+  .hover-lift:hover {
+    transform: none;
   }
 }

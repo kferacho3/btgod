@@ -131,7 +131,7 @@ export default async function ProductDetailPage({
           <div className="grid gap-3 sm:grid-cols-2">
             {sizeTiers.map((tier) => (
               <article key={tier.code} className="border border-[var(--line)] p-4">
-                <p className="display-font text-3xl leading-none tracking-[0.08em]">
+                <p className="display-font text-2xl leading-none tracking-[0.08em] sm:text-3xl">
                   {tier.code} • {tier.name}
                 </p>
                 <p className="mt-2 text-[0.62rem] uppercase tracking-[0.16em] text-[var(--text-secondary)]">
@@ -169,7 +169,9 @@ export default async function ProductDetailPage({
 
       <section className="space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <h2 className="display-font text-5xl tracking-[0.06em]">Related Pieces</h2>
+          <h2 className="display-font text-[clamp(1.9rem,9vw,3.2rem)] tracking-[0.06em]">
+            Related Pieces
+          </h2>
           <Link href="/shop" className="btn-outline">
             Shop All
           </Link>

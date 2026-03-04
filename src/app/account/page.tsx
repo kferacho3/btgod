@@ -5,7 +5,7 @@ export default function AccountPage() {
     <section className="card-shell grid gap-7 p-6 sm:p-8 xl:grid-cols-[1.05fr_0.95fr]">
       <div className="space-y-6">
         <p className="eyebrow">Member Access</p>
-        <h1 className="display-font text-6xl leading-[0.88] tracking-[0.06em] sm:text-7xl">
+        <h1 className="display-font text-[clamp(2.2rem,10vw,4.6rem)] leading-[0.88] tracking-[0.05em] sm:tracking-[0.06em]">
           PRIVATE
           <br />
           COMMAND

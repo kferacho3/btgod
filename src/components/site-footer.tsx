@@ -11,10 +11,10 @@ const footerLinks = [
 export function SiteFooter() {
   return (
     <footer className="border-t border-[var(--line)]">
-      <div className="mx-auto flex w-full max-w-[1460px] flex-col gap-10 px-5 py-14 sm:px-8 lg:px-10">
+      <div className="mx-auto flex w-full max-w-[1460px] flex-col gap-10 px-4 py-14 sm:px-8 lg:px-10">
         <div className="brand-banner px-4 py-2">
           <div className="banner-marquee">
-            <div className="banner-track text-[0.58rem] uppercase tracking-[0.16em] text-[var(--text-secondary)] sm:tracking-[0.24em]">
+            <div className="banner-track text-[0.58rem] uppercase tracking-[0.14em] text-[var(--text-secondary)] sm:tracking-[0.22em]">
               <span>Drop Alerts</span>
               <span className="metal-text">•</span>
               <span>Private Capsule Access</span>
@@ -33,7 +33,7 @@ export function SiteFooter() {
         <div className="royal-shell shine-border grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="space-y-4">
             <p className="eyebrow">Stay In The Loop</p>
-            <h2 className="display-font shimmer-text text-4xl leading-none tracking-[0.08em] sm:text-5xl">
+            <h2 className="display-font shimmer-text text-[clamp(2rem,8vw,3.3rem)] leading-[0.95] tracking-[0.07em] sm:tracking-[0.08em]">
               BTGOD Newsletter
             </h2>
             <p className="max-w-md text-[0.68rem] uppercase tracking-[0.17em] text-[var(--text-secondary)]">
@@ -42,7 +42,7 @@ export function SiteFooter() {
           </div>
           <form className="grid gap-3 sm:grid-cols-[1fr_auto]">
             <input type="email" placeholder="Email Address" className="field-input h-12" />
-            <button type="submit" className="btn-solid h-12 min-w-32">
+            <button type="submit" className="btn-solid h-12 w-full sm:w-auto sm:min-w-32">
               Join
             </button>
           </form>

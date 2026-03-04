@@ -41,7 +41,7 @@ export default function CollectionsPage() {
                 <div className="flex flex-col gap-5">
                   <div className="space-y-2">
                     <p className="eyebrow">{collection.drop}</p>
-                    <h2 className="display-font text-5xl leading-none tracking-[0.06em] sm:text-6xl">
+                    <h2 className="display-font text-[clamp(2rem,9vw,3.8rem)] leading-[0.92] tracking-[0.06em]">
                       {collection.title}
                     </h2>
                     <p className="text-xs uppercase tracking-[0.16em] text-[var(--text-secondary)]">
